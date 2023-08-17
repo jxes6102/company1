@@ -1,5 +1,6 @@
 <template>
   <div class="wrap">
+    <div class="text-white">home</div>
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <!-- <HelloWorld msg="I Don't Wanna Do This Anymore"/> -->
   </div>

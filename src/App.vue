@@ -3,17 +3,27 @@
     class="relative w-full h-[100vh] min-h-[100vh] overflow-y-auto overflow-x-hidden bg-slate-900" 
     @scroll="handleScroll"
   >
-    <headerView :heightStatus="scrollStutus"></headerView>
-    <router-view/>
+    <headerView ref="headerItem" :heightStatus="scrollStutus"></headerView>
+    <router-view 
+      class="relative" 
+      :class="menuStatus ? 'pt-[55vh]' : 'pt-[15vh]'"/>
     <footerView></footerView>
   </div>
 </template>
 <script setup>
+/*eslint-disable*/
   import headerView from './components/headerView.vue';
   import footerView from './components/footerView.vue';
-  import { ref,onMounted } from 'vue';
+  import { ref,computed,onMounted,watch } from 'vue';
+  import { useStore } from "vuex";
 
+  const store = useStore()
   const scrollStutus = ref(true)
+
+  const menuStatus = computed(() => {
+      return store.state.menuStatus
+  })
+
   const handleScroll = (el) => {
     if(el.target.scrollTop === 0){
       scrollStutus.value = true
@@ -22,7 +32,24 @@
     }
   }
 
+  const setWidth = () => {
+    store.commit('setMobile',window.innerWidth)
+  }
+  
+  const headerItem = ref(null)
+
+  // watch(num, (nV, oV) => {
+  //   console.log(nV, oV)
+  // }, {
+  //   immediate: true
+  // }) 
+
   onMounted(() => {
+    console.log('headerItem.value',headerItem.value.$el.clientHeight)
+    setWidth()
+    window.addEventListener('resize', () => {
+      setWidth()
+    }, false);
 
   })
 

@@ -1,15 +1,27 @@
 <template>
     <div 
-        class="transition-all fixed w-[calc(100%_-_10px)] top-0 left-0 bg-[#ffffff] z-10 flex flex-wrap justify-around items-center"
-        :class="heightStatus ? 'h-[15vh]' : 'h-[10vh]'"
+        class="transition-all fixed w-[calc(100%_-_10px)] top-0 left-0 bg-[#ffffff] z-10 flex flex-wrap justify-around items-center border-b-4 border-orange-800"
+        :class="menuHeight"
     >
-        <div class="relative w-[15%] h-[8vh] bg-[#6150cc] flex flex-wrap justify-center items-center">這是圖片</div>
-        
-        <div class="w-[auto] h-[8vh]">
-            <nav id="primary_nav_wrap">
-                <ul>
-                  <li class="current-menu-item"><a href="#">Home</a></li>
-                  <li><a href="#">Menu 1</a>
+        <div class="relative w-[50%] h-[8vh] md:w-[25%] md:h-[8vh] bg-[#6150cc] flex flex-wrap justify-center items-center">這是圖片</div>
+        <div 
+            v-if="!isMobile" 
+            class="relative w-[50%] h-[8vh]"
+        >
+            <nav id="primary_nav_wrap" class="relative w-full">
+                <ul class="relative w-full">
+                  <li class="w-[25%] h-[8vh] mine-flex-center text-2xl font-extrabold">關於OO</li>
+                  <li class="w-[25%] h-[8vh] mine-flex-center text-2xl font-extrabold">最新消息</li>
+                  <li class="w-[25%] h-[8vh] mine-flex-center text-2xl font-extrabold">服務介紹</li>
+                  <li class="w-[25%] h-[8vh] mine-flex-center text-2xl font-extrabold">聯絡我們</li>
+                  <!-- <li><a href="#">Menu 2</a>
+                    <ul>
+                      <li><a href="#">Sub Menu 1</a></li>
+                      <li><a href="#">Sub Menu 2</a></li>
+                      <li><a href="#">Sub Menu 3</a></li>
+                    </ul>
+                  </li> -->
+                  <!-- <li><a href="#">Menu 1</a>
                     <ul>
                       <li><a href="#">Sub Menu 1</a></li>
                       <li><a href="#">Sub Menu 2</a></li>
@@ -53,42 +65,29 @@
                       <li><a href="#">Sub Menu 4</a></li>
                       <li><a href="#">Sub Menu 5</a></li>
                     </ul>
-                  </li>
-                  <li><a href="#">Menu 4</a></li>
-                  <li><a href="#">Menu 5</a></li>
-                  <li><a href="#">Menu 6</a></li>
-                  <li><a href="#">Contact Us</a></li>
+                  </li> -->
                 </ul>
             </nav>
         </div>
-        <!-- <el-menu
-            :default-active="activeIndex"
-            class="el-menu-demo w-[auto] h-[8vh]"
-            mode="horizontal"
-            @select="handleSelect"
-        >
-            <el-menu-item index="1">關於頂碩</el-menu-item>
-            <el-sub-menu index="2">
-                <template #title>最新消息</template>
-                    <el-menu-item index="2-1">item one</el-menu-item>
-                    <el-menu-item index="2-2">item two</el-menu-item>
-                    <el-menu-item index="2-3">item three</el-menu-item>
-                    <el-sub-menu index="2-4">
-                        <template #title>item four</template>
-                            <el-menu-item index="2-4-1">item one</el-menu-item>
-                            <el-menu-item index="2-4-2">item two</el-menu-item>
-                            <el-menu-item index="2-4-3">item three</el-menu-item>
-                    </el-sub-menu>
-            </el-sub-menu>
-            <el-menu-item index="3">服務介紹</el-menu-item>
-            <el-menu-item index="4">聯絡我們</el-menu-item>
-        </el-menu> -->
+        <div v-else @click="show"><el-icon size="40" color="green"><Menu /></el-icon></div>
+        <div v-if="menuStatus" class="w-full relative">
+          <nav id="primary_nav_wrap" class="relative w-full">
+              <ul class="relative w-full">
+                <li class="w-[100%] h-[8vh] mine-flex-center text-2xl font-extrabold">關於OO</li>
+                <li class="w-[100%] h-[8vh] mine-flex-center text-2xl font-extrabold">最新消息</li>
+                <li class="w-[100%] h-[8vh] mine-flex-center text-2xl font-extrabold">服務介紹</li>
+                <li class="w-[100%] h-[8vh] mine-flex-center text-2xl font-extrabold">聯絡我們</li>
+              </ul>
+          </nav>
+        </div>
     </div>
 </template>
 
 <script setup>
 /*eslint-disable*/
-import { ref,defineProps } from "vue"; 
+import { computed,defineProps } from "vue";
+import { useStore } from "vuex";
+const store = useStore()
 const props = defineProps({
     heightStatus: {
         type: Boolean,
@@ -96,10 +95,32 @@ const props = defineProps({
     }
 })
 
-// const activeIndex = ref('1')
-// const handleSelect = (key, keyPath) => {
-//   console.log(key, keyPath)
-// }
+const isMobile = computed(() => {
+    if(!store.state.isMobile) store.commit('setMenu',false)
+    return store.state.isMobile
+})
+
+const menuStatus = computed(() => {
+    return store.state.menuStatus
+})
+
+const menuHeight = computed(() => {
+    if(props.heightStatus && menuStatus.value){
+      return "h-[55vh]"
+    }else if(!props.heightStatus && menuStatus.value){
+      return "h-[50vh]"
+    }else if(props.heightStatus && !menuStatus.value){
+      return "h-[15vh]"
+    }else{
+      return "h-[10vh]"
+    }
+})
+
+const show = () => {
+  store.commit('setMenu',!menuStatus.value)
+}
+
+
 </script>
 
 <style lang="scss" scoped>
@@ -108,7 +129,8 @@ const props = defineProps({
     }
     #primary_nav_wrap
     {
-        margin-top:0px
+      width: 100%;
+      height: auto;
     }
 
     #primary_nav_wrap ul
@@ -120,17 +142,17 @@ const props = defineProps({
         padding:0
     }
 
-    #primary_nav_wrap ul a
-    {
-        display:block;
-        color:#333;
-        text-decoration:none;
-        font-weight:700;
-        font-size:12px;
-        line-height:32px;
-        padding:0 15px;
-        font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif
-    }
+    //#primary_nav_wrap ul a
+    //{
+    //    display:block;
+    //    color:#333;
+    //    text-decoration:none;
+    //    font-weight:700;
+    //    font-size:12px;
+    //    line-height:32px;
+    //    padding:0 15px;
+    //    font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif
+    //}
 
     #primary_nav_wrap ul li
     {
@@ -166,11 +188,11 @@ const props = defineProps({
         width:200px
     }
 
-    #primary_nav_wrap ul ul a
-    {
-        line-height:120%;
-        padding:10px 15px
-    }
+    //#primary_nav_wrap ul ul a
+    //{
+    //    line-height:120%;
+    //    padding:10px 15px
+    //}
 
     #primary_nav_wrap ul ul ul
     {
