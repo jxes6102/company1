@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="relative w-full h-[100vh] min-h-[100vh] overflow-y-auto overflow-x-hidden bg-slate-900" 
+    class="relative w-full h-[100vh] min-h-[100vh] overflow-y-auto overflow-x-hidden" 
     @scroll="handleScroll"
   >
     <headerView ref="headerItem" :heightStatus="scrollStutus"></headerView>
