@@ -1,6 +1,6 @@
 <template>
     <div 
-        class="transition-all fixed w-[calc(100%_-_10px)] top-0 left-0 bg-[rgba(255,255,204,0)] z-10 flex flex-wrap justify-around items-center"
+        class="transition-all fixed w-[calc(100%_-_10px)] top-0 left-0 z-10 flex flex-wrap justify-around items-center bg-[url('/src/assets/img/bg-3.jpg')] bg-cover bg-center bg-no-repeat"
         :class="menuHeight"
     >
         <div class="relative w-[50%] h-[8vh] md:w-[25%] md:h-[8vh] bg-[#6150cc] flex flex-wrap justify-center items-center">這是圖片</div>

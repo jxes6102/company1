@@ -14,6 +14,7 @@
     "element-plus": "^2.3.9",
     "postcss": "^8",
     "register-service-worker": "^1.7.2",
+    "swiper": "^10.2.0",
     "tailwindcss": "^3",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
