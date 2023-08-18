@@ -3,17 +3,26 @@
         class="transition-all fixed w-full md:w-[calc(100%_-_10px)] top-0 left-0 z-10 flex flex-wrap justify-around items-center bg-[url('/src/assets/img/bg-3.jpg')] bg-cover bg-center bg-no-repeat"
         :class="menuHeight"
     >
-        <div class="relative w-[50%] h-[8vh] md:w-[25%] md:h-[8vh] bg-[#6150cc] flex flex-wrap justify-center items-center">這是圖片</div>
+        <div 
+          class="relative w-[50%] h-[8vh] md:w-[25%] md:h-[8vh] bg-[#6150cc] flex flex-wrap justify-center items-center"
+          @click="tohome()"
+          >這是圖片
+        </div>
         <div 
             v-if="!isMobile" 
             class="relative w-[50%] h-[8vh]"
         >
             <nav id="primary_nav_wrap" class="relative w-full">
                 <ul class="relative w-full">
-                  <li class="w-[25%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl ">關於OO</li>
+                  <li 
+                    v-for="(item, index) in menuList" :key="index"
+                    class="w-[25%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl"
+                    @click="toLink(index)"
+                  >{{item.text}}</li>
+                  <!-- <li class="w-[25%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl ">關於OO</li>
                   <li class="w-[25%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl ">最新消息</li>
                   <li class="w-[25%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl ">服務介紹</li>
-                  <li class="w-[25%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl ">聯絡我們</li>
+                  <li class="w-[25%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl ">聯絡我們</li> -->
                   <!-- <li><a href="#">Menu 2</a>
                     <ul>
                       <li><a href="#">Sub Menu 1</a></li>
@@ -73,10 +82,15 @@
         <div v-if="menuStatus" class="w-full relative">
           <nav id="primary_nav_wrap" class="relative w-full">
               <ul class="relative w-full">
-                <li class="w-[100%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl">關於OO</li>
+                <li 
+                  v-for="(item, index) in menuList" :key="index"
+                  class="w-[100%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl"
+                  @click="toLink(index)"
+                >{{item.text}}</li>
+                <!-- <li class="w-[100%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl">關於OO</li>
                 <li class="w-[100%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl">最新消息</li>
                 <li class="w-[100%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl">服務介紹</li>
-                <li class="w-[100%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl">聯絡我們</li>
+                <li class="w-[100%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl">聯絡我們</li> -->
               </ul>
           </nav>
         </div>
@@ -85,15 +99,25 @@
 
 <script setup>
 /*eslint-disable*/
-import { computed,defineProps } from "vue";
+import { ref,computed,defineProps } from "vue";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 const store = useStore()
+const router = useRouter()
+
 const props = defineProps({
     heightStatus: {
         type: Boolean,
         default: true
     }
 })
+
+const menuList = ref([
+  {text:"關於OO",url:'about'},
+  {text:"最新消息",url:'information'},
+  {text:"服務介紹",url:'service'},
+  {text:"聯絡我們",url:'contact'},
+])
 
 const isMobile = computed(() => {
     if(!store.state.isMobile) store.commit('setMenu',false)
@@ -120,6 +144,13 @@ const show = () => {
   store.commit('setMenu',!menuStatus.value)
 }
 
+const toLink = (val) => {
+  router.push({ path: menuList.value[val].url })
+}
+
+const tohome = () => {
+  router.push({ path: '/' })
+}
 
 </script>
 
