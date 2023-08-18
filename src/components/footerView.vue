@@ -14,8 +14,8 @@
             </div>
         </div>
         <div class="relative w-[100%] h-[20%] bg-[#357f03] flex justify-center items-center flex-col">
-            <div class="w-[100%] text-white">Copyright © 2022, SHUO-DING Resource regeneration Co., Ltd. All Rights Reserved.</div>
-            <div class="w-[100%] text-white">Power by Echo Studio</div>
+            <div class="w-[100%] text-white">Copyright © 2029, XXXX Resource regeneration Co., Ltd. All Rights Reserved.</div>
+            <div class="w-[100%] text-white">Power by XXXX Studio</div>
         </div>
     </div>
 </template>

@@ -80,6 +80,8 @@ nav {
   }
 }
 */
+
+@media (min-width: 767px)  {
 /* 網頁捲軸【寬度】 */
 ::-webkit-scrollbar {
   width: 10px;
@@ -100,4 +102,6 @@ nav {
 ::-webkit-scrollbar-thumb:hover {
   background: #d9f1b3;
 }
+}
+
 </style>

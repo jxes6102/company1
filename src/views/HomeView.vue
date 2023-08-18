@@ -13,29 +13,37 @@
         @swiper="onSwiper"
         @slideChange="onSlideChange"
       >
-        <!-- <swiper-slide>
-          <div class="w-[100vw] h-[100vh] bg-[url('/src/assets/img/test1.png')] bg-cover bg-center bg-no-repeat">Slide 1</div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="w-[100vw] h-[100vh] bg-[url('/src/assets/img/test2.png')] bg-cover bg-center bg-no-repeat">Slide 2</div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="w-[100vw] h-[100vh] bg-[url('/src/assets/img/test1.png')] bg-cover bg-center bg-no-repeat">Slide 3</div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="w-[100vw] h-[100vh] bg-[url('/src/assets/img/test2.png')] bg-cover bg-center bg-no-repeat">Slide 3</div>
-        </swiper-slide> -->
         <swiper-slide v-for="(item, index) in swiperData" :key="index">
           <div 
             class="w-[100vw] h-[100vh] bg-cover bg-center bg-no-repeat mine-flex-center"
             :style="{ 'background-image': 'url(' + item.url + ')' }"
           >
-            <div class="text-3xl">{{ '這是標題:' + (index+1)}}</div>
+            <div class="text-3xl bg-[red]">{{ '這是標題:' + (index+1)}}</div>
           </div>
         </swiper-slide>
       </Swiper>
     </div>
     <div class="w-[100vw] h-[23vw] bg-[url('/src/assets/img/bg-4.jpg')] bg-cover bg-center bg-no-repeat"></div>
+    <div class="w-[100vw] h-auto py-[30px] bg-[#272d33] flex justify-around items-center flex-wrap">
+      <div class="w-[80%] md:w-[auto] text-white text-xl md:text-2xl font-bold">讓XXXX循環不息，把美好XX留給下一代～</div>
+      <div class="w-[80%] md:w-[auto]"><button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">聯絡我們</button></div>
+    </div>
+    <div class="w-[100vw] h-auto md:h-[100vh] bg-[url('/src/assets/img/bg-2.jpg')] bg-cover bg-center bg-no-repeat flex justify-around items-center flex-wrap">
+      <div class="w-[100%] h-auto py-4 text-[red] text-xl md:text-4xl font-bold">最新消息</div>
+      <div class="w-[80%] h-[80%] flex justify-evenly items-center flex-wrap gap-10">
+        <div 
+          class="w-[90vw] h-[40vh] md:w-[30%] md:h-[45%] flex justify-center items-center flex-wrap"
+          v-for="(item, index) in informationData" :key="index"
+        >
+          <div class="w-[100%] h-[80%] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
+          <div class="w-[100%] h-[20%] flex justify-evenly items-center flex-wrap">
+            <div class="w-[100%] h-auto text-xl md:text-2xl text-[red] font-semibold">{{item.title}}</div>
+            <div class="w-[100%] h-auto text-lg md:text-xl text-[red]">{{item.time}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="w-[100%] h-auto py-4"><button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">瀏覽全部</button></div>
+    </div>
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <!-- <HelloWorld msg="I Don't Wanna Do This Anymore"/> -->
   </div>
@@ -57,14 +65,42 @@ const menuStatus = computed(() => {
     return store.state.menuStatus
 })
 const swiperData = ref([
-  {url:require('../assets/img/test1.png')},
-  {url:require('../assets/img/test2.png')},
-  {url:require('../assets/img/test1.png')},
-  {url:require('../assets/img/test2.png')}
+  {url:require('../assets/img/dog-1.png')},
+  {url:require('../assets/img/dog-2.png')},
+  {url:require('../assets/img/dog-3.png')},
+  {url:require('../assets/img/dog-4.png')}
+])
+
+const informationData = ref([
+  {
+    url:require('../assets/img/dog-5.png'),
+    title:'這是標題5',
+    time:'2023-04-29'
+  },
+  {
+    url:require('../assets/img/dog-6.png'),
+    title:'這是標題6',
+    time:'2023-04-29'
+  },
+  {
+    url:require('../assets/img/dog-7.png'),
+    title:'這是標題7',
+    time:'2023-04-29'
+  },
+  {
+    url:require('../assets/img/dog-8.png'),
+    title:'這是標題8',
+    time:'2023-04-29'
+  },
+  {
+    url:require('../assets/img/dog-9.png'),
+    title:'這是標題9',
+    time:'2023-04-29'
+  },
 ])
 
 const onSwiper = (swiper) => {
-  console.log(swiper);
+  // console.log(swiper);
 };
 
 const onSlideChange = () => {
