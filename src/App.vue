@@ -87,17 +87,17 @@ nav {
 
 /* 網頁捲軸【背景】顏色 */
 ::-webkit-scrollbar-track {
-  background: #448fc8;
+  background: #cbfbac;
 }
 
 /* 網頁捲軸【把手】顏色 */
 ::-webkit-scrollbar-thumb {
-  background: #e1e5e8;
+  background: #d3f93a;
   border-radius: 5px;
 }
 
 /* 網頁捲軸【滑過時】把手的顏色 */
 ::-webkit-scrollbar-thumb:hover {
-  background: #fff;
+  background: #d9f1b3;
 }
 </style>

@@ -13,14 +13,25 @@
         @swiper="onSwiper"
         @slideChange="onSlideChange"
       >
-        <swiper-slide>
-          <div class="w-[100vw] h-[300px]">Slide 1</div>
+        <!-- <swiper-slide>
+          <div class="w-[100vw] h-[100vh] bg-[url('/src/assets/img/test1.png')] bg-cover bg-center bg-no-repeat">Slide 1</div>
         </swiper-slide>
         <swiper-slide>
-          <div class="w-[100vw] h-[300px]">Slide 2</div>
+          <div class="w-[100vw] h-[100vh] bg-[url('/src/assets/img/test2.png')] bg-cover bg-center bg-no-repeat">Slide 2</div>
         </swiper-slide>
         <swiper-slide>
-          <div class="w-[100vw] h-[300px]">Slide 3</div>
+          <div class="w-[100vw] h-[100vh] bg-[url('/src/assets/img/test1.png')] bg-cover bg-center bg-no-repeat">Slide 3</div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="w-[100vw] h-[100vh] bg-[url('/src/assets/img/test2.png')] bg-cover bg-center bg-no-repeat">Slide 3</div>
+        </swiper-slide> -->
+        <swiper-slide v-for="(item, index) in swiperData" :key="index">
+          <div 
+            class="w-[100vw] h-[100vh] bg-cover bg-center bg-no-repeat mine-flex-center"
+            :style="{ 'background-image': 'url(' + item.url + ')' }"
+          >
+            <div class="text-3xl">{{ '這是標題:' + (index+1)}}</div>
+          </div>
         </swiper-slide>
       </Swiper>
     </div>
@@ -45,9 +56,17 @@ const store = useStore()
 const menuStatus = computed(() => {
     return store.state.menuStatus
 })
+const swiperData = ref([
+  {url:require('../assets/img/test1.png')},
+  {url:require('../assets/img/test2.png')},
+  {url:require('../assets/img/test1.png')},
+  {url:require('../assets/img/test2.png')}
+])
+
 const onSwiper = (swiper) => {
   console.log(swiper);
 };
+
 const onSlideChange = () => {
   console.log('slide change');
 };
