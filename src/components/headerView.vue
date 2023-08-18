@@ -10,10 +10,10 @@
         >
             <nav id="primary_nav_wrap" class="relative w-full">
                 <ul class="relative w-full">
-                  <li class="w-[25%] h-[8vh] mine-flex-center text-2xl font-extrabold">關於OO</li>
-                  <li class="w-[25%] h-[8vh] mine-flex-center text-2xl font-extrabold">最新消息</li>
-                  <li class="w-[25%] h-[8vh] mine-flex-center text-2xl font-extrabold">服務介紹</li>
-                  <li class="w-[25%] h-[8vh] mine-flex-center text-2xl font-extrabold">聯絡我們</li>
+                  <li class="w-[25%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl ">關於OO</li>
+                  <li class="w-[25%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl ">最新消息</li>
+                  <li class="w-[25%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl ">服務介紹</li>
+                  <li class="w-[25%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl ">聯絡我們</li>
                   <!-- <li><a href="#">Menu 2</a>
                     <ul>
                       <li><a href="#">Sub Menu 1</a></li>
@@ -73,10 +73,10 @@
         <div v-if="menuStatus" class="w-full relative">
           <nav id="primary_nav_wrap" class="relative w-full">
               <ul class="relative w-full">
-                <li class="w-[100%] h-[8vh] mine-flex-center text-2xl font-extrabold">關於OO</li>
-                <li class="w-[100%] h-[8vh] mine-flex-center text-2xl font-extrabold">最新消息</li>
-                <li class="w-[100%] h-[8vh] mine-flex-center text-2xl font-extrabold">服務介紹</li>
-                <li class="w-[100%] h-[8vh] mine-flex-center text-2xl font-extrabold">聯絡我們</li>
+                <li class="w-[100%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl">關於OO</li>
+                <li class="w-[100%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl">最新消息</li>
+                <li class="w-[100%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl">服務介紹</li>
+                <li class="w-[100%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl">聯絡我們</li>
               </ul>
           </nav>
         </div>
@@ -167,10 +167,10 @@ const show = () => {
         background:#ddd
     }
 
-    #primary_nav_wrap ul li:hover
-    {
-        background:#f6f6f6
-    }
+    //#primary_nav_wrap ul li:hover
+    //{
+    //    background:#b0afaf
+    //}
 
     #primary_nav_wrap ul ul
     {

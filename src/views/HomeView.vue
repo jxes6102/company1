@@ -28,11 +28,11 @@
       <div class="w-[80%] md:w-[auto] text-white text-xl md:text-2xl font-bold">讓XXXX循環不息，把美好XX留給下一代～</div>
       <div class="w-[80%] md:w-[auto]"><button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">聯絡我們</button></div>
     </div>
-    <div class="w-[100vw] h-auto md:h-[100vh] bg-[url('/src/assets/img/bg-2.jpg')] bg-cover bg-center bg-no-repeat flex justify-around items-center flex-wrap">
-      <div class="w-[100%] h-auto py-4 text-[red] text-xl md:text-4xl font-bold">最新消息</div>
-      <div class="w-[80%] h-[80%] flex justify-evenly items-center flex-wrap gap-10">
+    <div class="w-[100vw] h-auto bg-[url('/src/assets/img/bg-2.jpg')] bg-cover bg-center bg-no-repeat flex justify-around items-center flex-wrap">
+      <div class="w-[100%] h-auto py-[30px] text-[red] text-xl md:text-4xl font-bold">最新消息</div>
+      <div class="w-[80%] h-[auto] flex justify-evenly items-center flex-wrap gap-x-4 gap-y-10">
         <div 
-          class="w-[90vw] h-[40vh] md:w-[30%] md:h-[45%] flex justify-center items-center flex-wrap"
+          class="w-[90vw] h-[40vh] md:w-[25vw] md:h-[20vw] flex justify-center items-center flex-wrap"
           v-for="(item, index) in informationData" :key="index"
         >
           <div class="w-[100%] h-[80%] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-      <div class="w-[100%] h-auto py-4"><button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">瀏覽全部</button></div>
+      <div class="w-[100%] h-auto py-[30px]"><button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">瀏覽全部</button></div>
     </div>
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <!-- <HelloWorld msg="I Don't Wanna Do This Anymore"/> -->
@@ -55,7 +55,6 @@
 import { useStore } from "vuex";
 import { ref,computed,onMounted,watch } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
