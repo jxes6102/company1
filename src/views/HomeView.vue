@@ -74,27 +74,27 @@ const informationData = ref([
   {
     url:require('../assets/img/dog-5.png'),
     title:'這是標題5',
-    time:'2023-04-29'
+    time:'2023-04-29 10:02:20'
   },
   {
     url:require('../assets/img/dog-6.png'),
     title:'這是標題6',
-    time:'2023-04-29'
+    time:'2023-04-29 10:02:20'
   },
   {
     url:require('../assets/img/dog-7.png'),
     title:'這是標題7',
-    time:'2023-04-29'
+    time:'2023-04-29 10:02:20'
   },
   {
     url:require('../assets/img/dog-8.png'),
     title:'這是標題8',
-    time:'2023-04-29'
+    time:'2023-04-29 10:02:20'
   },
   {
     url:require('../assets/img/dog-9.png'),
     title:'這是標題9',
-    time:'2023-04-29'
+    time:'2023-04-29 10:02:20'
   },
 ])
 
