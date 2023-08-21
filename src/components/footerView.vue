@@ -6,7 +6,7 @@
                 <div class="w-[90%] h-[20%] bg-[red] flex justify-center items-center text-white">這是圖片</div>
                 <div class="w-[90%] text-base text-white">電話：06-68916XX 傳真：06-68987XX</div>
                 <div class="w-[90%] text-base text-white">e-Mail：service@XXX-XXXX.com.tw</div>
-                <div class="w-[90%] text-base text-white">地址：台南市XX區XX里XX寮X之XX號</div>
+                <div class="w-[90%] text-base text-white">地址：高雄市苓雅區四維四路167號3樓</div>
             </div>
             <div class="w-[100%] h-[30%] md:w-[60%] md:h-[70%] flex justify-center md:items-center flex-wrap">
                 <div class="w-[90%] h-auto text-xl text-white text-left">地圖位置</div>
@@ -27,7 +27,7 @@ const initMap = () => {
     // 透過 Map 物件建構子建立新地圖 map 物件實例，並將地圖呈現在 id 為 map 的元素中
     map = new google.maps.Map(document.getElementById("map"), {
         // 設定地圖的中心點經緯度位置
-        center: { lat: -25.363, lng: 131.044 },
+        center: { lat: 22.6140167, lng: 120.2925468 },
         // 設定地圖縮放比例 0-20
         zoom: 15,
         // 限制使用者能縮放地圖的最大比例
@@ -37,7 +37,9 @@ const initMap = () => {
         // 設定是否呈現右下角街景小人
         streetViewControl: false,
         // 設定是否讓使用者可以切換地圖樣式：一般、衛星圖等
-        mapTypeControl: false
+        mapTypeControl: false,
+        // 托放設定
+        draggable:true
     });
 }
 // 建立地標
@@ -45,14 +47,14 @@ const setMarker = () => {
     // 建立一個新地標
     const marker = new google.maps.Marker({
         // 設定地標的座標
-        position: { lat: -25.363, lng: 131.044 },
+        position: { lat: 22.6140167, lng: 120.2925468 },
         // 設定地標要放在哪一個地圖
         map: map
     });
 }
 onMounted(() => {
     initMap()
-    // setMarker()
+    setMarker()
 })
 
 </script>

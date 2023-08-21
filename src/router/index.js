@@ -38,7 +38,23 @@ const routes = [
 const router = createRouter({
   // history: createWebHistory(process.env.BASE_URL),
   history:createWebHashHistory(),
-  routes
+  routes,
 })
+
+router.beforeEach((to, from, next) => {
+  const target = {
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  }
+  document.querySelector('#main').scrollTo(target)
+  next()
+})
+
+// router.beforeResolve(async () => {
+// })
+
+// router.afterEach(() => {
+// })
 
 export default router

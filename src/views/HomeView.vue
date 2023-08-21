@@ -42,7 +42,9 @@
           </div>
         </div>
       </div>
-      <div class="w-[100%] h-auto py-[30px]"><button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">瀏覽全部</button></div>
+      <div class="w-[100%] h-auto py-[30px]">
+        <button @click="toInformation" class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">瀏覽全部</button>
+      </div>
     </div>
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <!-- <HelloWorld msg="I Don't Wanna Do This Anymore"/> -->
@@ -55,10 +57,12 @@
 import { useStore } from "vuex";
 import { ref,computed,onMounted,watch } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
+import { useRouter } from "vue-router";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+const router = useRouter()
 const store = useStore()
 const menuStatus = computed(() => {
     return store.state.menuStatus
@@ -105,6 +109,11 @@ const onSwiper = (swiper) => {
 const onSlideChange = () => {
   console.log('slide change');
 };
+
+const toInformation = () => {
+  router.push({ path: 'information' })
+}
+
 </script>
 
 <style lang="scss" scoped>

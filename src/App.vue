@@ -1,10 +1,11 @@
 <template>
-  <div 
+  <div
+    id="main"
     class="relative w-full h-[100vh] min-h-[100vh] overflow-y-auto overflow-x-hidden" 
     @scroll="handleScroll"
   >
     <headerView ref="headerItem" :heightStatus="scrollStutus"></headerView>
-    <router-view 
+    <router-view
       class="relative" 
       :class="menuStatus ? 'pt-[55vh]' : 'pt-[15vh]'"/>
     <footerView></footerView>
@@ -16,7 +17,7 @@
   import footerView from './components/footerView.vue';
   import { ref,computed,onMounted,watch } from 'vue';
   import { useStore } from "vuex";
-
+  console.log('test 2')
   const store = useStore()
   const scrollStutus = ref(true)
 
@@ -42,7 +43,7 @@
   //   console.log(nV, oV)
   // }, {
   //   immediate: true
-  // }) 
+  // })
 
   onMounted(() => {
     console.log('headerItem.value',headerItem.value.$el.clientHeight)
@@ -50,7 +51,7 @@
     window.addEventListener('resize', () => {
       setWidth()
     }, false);
-
+    
   })
 
 </script>
