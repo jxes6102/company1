@@ -7,7 +7,7 @@
     <headerView ref="headerItem" :heightStatus="scrollStutus"></headerView>
     <router-view
       class="relative" 
-      :class="menuStatus ? 'pt-[55vh]' : 'pt-[15vh]'"/>
+      :class="menuStatus ? 'pt-[50vh]' : 'pt-[10vh]'"/>
     <footerView></footerView>
   </div>
 </template>

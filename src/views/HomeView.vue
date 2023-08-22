@@ -15,16 +15,17 @@
       >
         <swiper-slide v-for="(item, index) in swiperData" :key="index">
           <div 
-            class="w-[100vw] h-[100vh] bg-cover bg-center bg-no-repeat mine-flex-center"
+            class="w-[100vw] h-[60vw] bg-cover bg-center bg-no-repeat mine-flex-center"
             :style="{ 'background-image': 'url(' + item.url + ')' }"
           >
-            <div class="text-3xl bg-[red]">{{ '這是標題:' + (index+1)}}</div>
+            <!-- <div class="text-3xl bg-[red]">{{ '這是標題:' + (index+1)}}</div> -->
           </div>
         </swiper-slide>
       </Swiper>
     </div>
-    <div class="w-[100vw] h-[23vw] bg-[url('/src/assets/img/bg-4.jpg')] bg-cover bg-center bg-no-repeat"></div>
-    <div class="w-[100vw] h-auto py-[30px] bg-[#272d33] flex justify-around items-center flex-wrap">
+    <div class="shadow-style relative w-[100vw] h-[60vw] flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-5.jpg')] bg-cover bg-center bg-no-repeat"></div>
+    <div class="shadow-style relative w-[100vw] h-[60vw] flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-6.jpg')] bg-cover bg-center bg-no-repeat"></div>
+    <!-- <div class="w-[100vw] h-auto py-[30px] bg-[#272d33] flex justify-around items-center flex-wrap">
       <div class="w-[80%] md:w-[auto] text-white text-xl md:text-2xl font-bold">讓XXXX循環不息，把美好XX留給下一代～</div>
       <div class="w-[80%] md:w-[auto]"><button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">聯絡我們</button></div>
     </div>
@@ -45,7 +46,7 @@
       <div class="w-[100%] h-auto py-[30px]">
         <button @click="toInformation" class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">瀏覽全部</button>
       </div>
-    </div>
+    </div> -->
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <!-- <HelloWorld msg="I Don't Wanna Do This Anymore"/> -->
   </div>
@@ -68,10 +69,9 @@ const menuStatus = computed(() => {
     return store.state.menuStatus
 })
 const swiperData = ref([
-  {url:require('../assets/img/dog-1.png')},
-  {url:require('../assets/img/dog-2.png')},
-  {url:require('../assets/img/dog-3.png')},
-  {url:require('../assets/img/dog-4.png')}
+  {url:require('../assets/img/green-1.png')},
+  {url:require('../assets/img/green-2.png')},
+  {url:require('../assets/img/green-3.png')}
 ])
 
 const informationData = ref([
@@ -117,4 +117,7 @@ const toInformation = () => {
 </script>
 
 <style lang="scss" scoped>
+.shadow-style{
+  box-shadow:0 0 80px 40px rgba(255, 255, 255, 0.9) inset;
+}
 </style>

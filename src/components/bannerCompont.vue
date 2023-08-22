@@ -21,6 +21,7 @@ const title = computed(() => {
         {name:'service',text:'服務介紹'},
         {name:'contact',text:'聯絡我們'},
         {name:'about',text:'關於OO'},
+        {name:'recruitment',text:"徵才資訊"}
     ]
     let target = list.find((item)=>item.name === router.currentRoute.value.name).text
     return target
