@@ -18,13 +18,18 @@
             class="w-[100vw] h-[60vw] bg-cover bg-center bg-no-repeat mine-flex-center"
             :style="{ 'background-image': 'url(' + item.url + ')' }"
           >
-            <!-- <div class="text-3xl bg-[red]">{{ '這是標題:' + (index+1)}}</div> -->
+            <div class="text-3xl bg-[red]">{{ '這是標題:' + (index+1)}}</div>
           </div>
         </swiper-slide>
       </Swiper>
     </div>
-    <div class="shadow-style relative w-[100vw] h-[60vw] flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-5.jpg')] bg-cover bg-center bg-no-repeat"></div>
-    <div class="shadow-style relative w-[100vw] h-[60vw] flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-6.jpg')] bg-cover bg-center bg-no-repeat"></div>
+    <div class="shadow-style relative w-[100vw] h-[60vw] flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-5.jpg')] bg-cover bg-center bg-no-repeat">
+      <div class="w-[100%] h-auto text-2xl md:text-5xl font-bold text-[#21321a]">最新消息</div>
+    </div>
+    <div class="shadow-style relative w-[100vw] h-[60vw] flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-6.jpg')] bg-cover bg-center bg-no-repeat">
+      <div class="w-[100%] h-auto text-2xl md:text-5xl font-bold text-[#21321a]">合作廠商</div>
+      <div class="w-[100%] h-auto text-2xl md:text-5xl font-bold text-[#21321a]">聯絡我們</div>
+    </div>
     <!-- <div class="w-[100vw] h-auto py-[30px] bg-[#272d33] flex justify-around items-center flex-wrap">
       <div class="w-[80%] md:w-[auto] text-white text-xl md:text-2xl font-bold">讓XXXX循環不息，把美好XX留給下一代～</div>
       <div class="w-[80%] md:w-[auto]"><button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">聯絡我們</button></div>

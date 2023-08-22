@@ -13,7 +13,7 @@
                 <div id="map" class="w-[90%] h-[70%] md:h-[80%] flex justify-center items-center text-white">這是地圖</div>
             </div>
         </div>
-        <div class="relative w-[100%] h-[20%] bg-[#e9fddd] flex justify-center items-center flex-col">
+        <div class="relative w-[100%] h-[20%] py-[20px] md:py-0 bg-[#e9fddd] flex justify-center items-center flex-col">
             <div class="w-[100%] text-black text-sm md:text-base">Copyright © 2029, XXXX Resource regeneration Co., Ltd. All Rights Reserved.</div>
             <div class="w-[100%] text-black text-sm md:text-base">Power by XXXX Studio</div>
         </div>
