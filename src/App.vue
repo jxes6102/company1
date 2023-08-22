@@ -95,13 +95,13 @@ nav {
 
 /* 網頁捲軸【把手】顏色 */
 ::-webkit-scrollbar-thumb {
-  background: #d3f93a;
+  background: #87f87a;
   border-radius: 5px;
 }
 
 /* 網頁捲軸【滑過時】把手的顏色 */
 ::-webkit-scrollbar-thumb:hover {
-  background: #d9f1b3;
+  background: #9ff99a;
 }
 }
 
