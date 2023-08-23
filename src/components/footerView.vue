@@ -1,5 +1,5 @@
 <template>
-    <div class="relative w-[100vw] h-auto flex justify-center items-center flex-wrap">
+    <div class="relative pb-[5vh] md:pb-0 w-[100vw] h-auto flex justify-center items-center flex-wrap">
         <div class="relative w-[100%] h-auto py-4 flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-4.jpg')] bg-cover bg-center bg-no-repeat">
             <div class="w-[100%] md:w-[35%] h-auto flex justify-center items-center flex-wrap gap-y-4">
                 <div class="w-[90%] text-2xl text-black text-left">聯絡資訊</div>
@@ -12,7 +12,7 @@
                 <div id="map" class="w-[90%] h-[70%] md:h-[80%] flex justify-center items-center text-white">這是地圖</div>
             </div>
         </div>
-        <div class="relative w-[100%] h-[60px] md:h-[auto] bg-[#e9fddd] flex justify-center items-center flex-col">
+        <div class="relative w-[100%] h-auto py-2 bg-[#e9fddd] flex justify-center items-center flex-col">
             <div class="w-[100%] text-black text-sm md:text-base">Copyright © 菁鉐股份有限公司</div>
             <div class="w-[100%] text-black text-sm md:text-base">Powered by 好時資訊股份有限公司</div>
         </div>
