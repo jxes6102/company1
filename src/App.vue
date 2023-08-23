@@ -46,7 +46,7 @@
   // })
 
   onMounted(() => {
-    console.log('headerItem.value',headerItem.value.$el.clientHeight)
+    // console.log('headerItem.value',headerItem.value.$el.clientHeight)
     setWidth()
     window.addEventListener('resize', () => {
       setWidth()

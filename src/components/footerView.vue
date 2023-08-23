@@ -12,7 +12,7 @@
                 <div id="map" class="w-[90%] h-[70%] md:h-[80%] flex justify-center items-center text-white">這是地圖</div>
             </div>
         </div>
-        <div class="relative w-[100%] h-[auto] py-2 bg-[#e9fddd] flex justify-center items-center flex-col">
+        <div class="relative w-[100%] h-[60px] md:h-[auto] bg-[#e9fddd] flex justify-center items-center flex-col">
             <div class="w-[100%] text-black text-sm md:text-base">Copyright © 菁鉐股份有限公司</div>
             <div class="w-[100%] text-black text-sm md:text-base">Powered by 好時資訊股份有限公司</div>
         </div>
@@ -52,8 +52,10 @@ const setMarker = () => {
     });
 }
 onMounted(() => {
-    initMap()
-    setMarker()
+    setTimeout((() => {
+        initMap()
+        setMarker()
+    }), 1000)
 })
 
 </script>
