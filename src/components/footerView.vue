@@ -1,5 +1,5 @@
 <template>
-    <div class="relative pb-[5vh] md:pb-0 w-[100vw] h-auto flex justify-center items-center flex-wrap">
+    <div class="relative pb-[40px] md:pb-0 w-[100vw] h-auto flex justify-center items-center flex-wrap">
         <div class="relative w-[100%] h-auto py-4 flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-4.jpg')] bg-cover bg-center bg-no-repeat">
             <div class="w-[100%] md:w-[35%] h-auto flex justify-center items-center flex-wrap gap-y-4">
                 <div class="w-[90%] text-2xl text-black text-left">聯絡資訊</div>
