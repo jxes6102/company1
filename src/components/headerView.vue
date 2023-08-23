@@ -99,7 +99,7 @@
 
 <script setup>
 /*eslint-disable*/
-import { ref,computed,defineProps } from "vue";
+import { ref,computed } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 const store = useStore()
