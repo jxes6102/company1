@@ -1,15 +1,16 @@
 <template>
   <div class="relative h-[auto] min-h-[100vh]">
-    <div class="relative text-black">
+    <div class="shadow-style-1 relative text-black w-[100vw] h-auto py-4 bg-[url('/src/assets/img/green-7.jpg')] bg-cover bg-center bg-no-repeat mine-flex-center">
       <swiper
+        class="relative text-black w-[80%] h-[48vw] md:w-[60%] md:h-[36vw] rounded-md mine-flex-center"
         :slides-per-view="1"
         :space-between="0"
         @swiper="onSwiper"
         @slideChange="onSlideChange"
       >
         <swiper-slide v-for="(item, index) in swiperData" :key="index">
-          <div 
-            class="w-[100vw] h-[60vw] bg-cover bg-center bg-no-repeat mine-flex-center"
+          <div
+            class="w-[100%] h-[100%] bg-cover bg-center bg-no-repeat mine-flex-center"
             :style="{ 'background-image': 'url(' + item.url + ')' }"
           >
             <div class="text-3xl bg-[red]">{{ '這是標題:' + (index+1)}}</div>

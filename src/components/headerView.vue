@@ -4,7 +4,7 @@
         :class="menuHeight"
     >
         <div 
-          class="relative w-[50%] h-[8vh] md:w-[25%] md:h-[8vh] text-xl md:text-3xl flex flex-wrap justify-center items-center font-extrabold"
+          class="relative w-[60%] h-[8vh] md:w-[25%] md:h-[8vh] text-xl md:text-3xl flex flex-wrap justify-center items-center font-extrabold"
           @click="tohome()"
           >菁鉐股份有限公司
         </div>
@@ -87,10 +87,6 @@
                   class="w-[100%] h-[8vh] mine-flex-center text-[#6a6a6a] text-2xl font-bold hover:text-[#2fbc36]"
                   @click="toLink(index)"
                 >{{item.text}}</li>
-                <!-- <li class="w-[100%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl">關於OO</li>
-                <li class="w-[100%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl">最新消息</li>
-                <li class="w-[100%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl">服務介紹</li>
-                <li class="w-[100%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl">聯絡我們</li> -->
               </ul>
           </nav>
         </div>
