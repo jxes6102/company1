@@ -5,9 +5,19 @@
     @scroll="handleScroll"
   >
     <headerView ref="headerItem" :heightStatus="scrollStutus"></headerView>
-    <router-view
-      class="relative" 
-      :class="menuStatus ? 'pt-[50vh]' : 'pt-[10vh]'"/>
+    <!-- <Transition
+      appear
+      mode="out-in"
+      enter-active-class="animate__animated animate__fadeIn"
+      leave-active-class="animate__animated animate__fadeOut"
+    >
+      <router-view class="relative" :class="menuStatus ? 'pt-[50vh]' : 'pt-[10vh]'"/>
+    </Transition> -->
+    <Transition
+      enter-active-class="animate__animated animate__fadeIn"
+    >
+      <router-view class="relative" :class="menuStatus ? 'pt-[50vh]' : 'pt-[10vh]'"/>
+    </Transition>
     <footerView></footerView>
   </div>
 </template>
@@ -17,6 +27,7 @@
   import footerView from './components/footerView.vue';
   import { ref,computed,onMounted,watch } from 'vue';
   import { useStore } from "vuex";
+  import 'animate.css';
   console.log('test 2')
   const store = useStore()
   const scrollStutus = ref(true)
