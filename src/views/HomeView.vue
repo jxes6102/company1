@@ -27,8 +27,8 @@
         >
           <div class="w-[60vw] h-[50vw] md:w-[25vw] md:h-[20vw] rounded-md bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
           <div class="w-[auto] h-auto flex justify-evenly items-center flex-wrap">
-            <div class="w-[100%] h-auto text-xl md:text-2xl text-[red] font-semibold">{{item.title}}</div>
-            <div class="w-[100%] h-auto text-lg md:text-xl text-[red]">{{item.time}}</div>
+            <div class="w-[100%] h-auto text-xl md:text-2xl text-[black] font-semibold">{{item.title}}</div>
+            <div class="w-[100%] h-auto text-lg md:text-xl text-[black]">{{item.time}}</div>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
         >
           <div class="w-[50vw] h-[50vw] md:w-[15vw] md:h-[15vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
           <div class="w-[100%] h-auto flex justify-evenly items-center flex-wrap">
-            <div class="w-[100%] h-auto text-xl md:text-2xl text-[red] font-semibold">{{item.title}}</div>
+            <div class="w-[100%] h-auto text-xl md:text-2xl text-[black] font-semibold">{{item.title}}</div>
           </div>
         </div>
       </div>
@@ -149,13 +149,3 @@ const toInformation = () => {
 }
 
 </script>
-
-<style lang="scss" scoped>
-.shadow-style-1{
-  box-shadow:0 0 80px 40px rgba(255, 255, 255, 0.9) inset;
-}
-
-.shadow-style-2{
-  box-shadow:0 0 20px 10px rgba(255, 255, 255, 0.9) inset;
-}
-</style>

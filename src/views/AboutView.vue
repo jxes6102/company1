@@ -1,7 +1,7 @@
 <template>
   <div class="relative h-[auto] min-h-[100vh]">
     <bannerCompont></bannerCompont>
-    <div class="w-[100%] h-auto min-h-[50vh] py-4 bg-[#fae4c6] flex justify-center items-center flex-wrap gap-y-4">
+    <div class="shadow-style-1 w-[100%] h-auto min-h-[50vh] py-4 bg-[url('/src/assets/img/green-10.jpg')] bg-cover bg-center bg-no-repeat flex justify-center items-center flex-wrap gap-y-4">
       <div class="w-[100%] md:w-[50%] h-[auto] flex justify-center items-center flex-wrap gap-y-10">
         <div class="w-[80%] h-[auto] flex justify-center items-center flex-wrap gap-y-4">
           <div class="w-[100%] h-auto text-left text-2xl font-bold">公司簡介:</div>
@@ -22,7 +22,7 @@
           >
             <swiper-slide v-for="(item, index) in swiperData" :key="index">
               <div 
-                class="w-[100%] h-[70vw] md:h-[30vw] bg-cover bg-center bg-no-repeat mine-flex-center"
+                class="rounded-md w-[100%] h-[70vw] md:h-[30vw] bg-cover bg-center bg-no-repeat mine-flex-center"
                 :style="{ 'background-image': 'url(' + item.url + ')' }"
               >
                 <div class="text-3xl bg-[red]">{{ '這是標題:' + (index+1)}}</div>

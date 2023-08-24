@@ -1,6 +1,6 @@
 <template>
     <div class="relative">
-        <div class="w-[100vw] h-[40vh] flex justify-center items-center flex-wrap bg-orange-700">
+        <div class="shadow-style-1 w-[100vw] h-[40vh] flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-8.jpg')] bg-cover bg-center bg-no-repeat">
             <div class="w-full h-auto">
                 <div class="text-7xl p-1 font-bold">{{title}}</div>
                 <div class="text-xl p-1">首頁/{{title}}</div>
@@ -20,7 +20,7 @@ const title = computed(() => {
         {name:'information',text:'最新消息'},
         {name:'service',text:'服務介紹'},
         {name:'contact',text:'聯絡我們'},
-        {name:'about',text:'關於OO'},
+        {name:'about',text:'關於菁鉐'},
         {name:'recruitment',text:"徵才資訊"}
     ]
     let target = list.find((item)=>item.name === router.currentRoute.value.name).text

@@ -1,0 +1,7 @@
+.shadow-style-1{
+  box-shadow:0 0 80px 40px rgba(255, 255, 255, 0.9) inset;
+}
+
+.shadow-style-2{
+  box-shadow:0 0 20px 10px rgba(255, 255, 255, 0.9) inset;
+}
