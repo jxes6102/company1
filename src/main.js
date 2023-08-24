@@ -22,3 +22,14 @@ app.use(store).use(router).mount('#app')
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
+
+app.directive('tothistop', {
+    mounted(el) {
+        const target = {
+            top: el.offsetTop - 100,
+            left: 0,
+            behavior: 'smooth',
+        }
+        document.querySelector('#main').scrollTo(target)
+    }
+})

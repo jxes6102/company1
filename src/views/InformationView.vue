@@ -15,11 +15,15 @@
                     </div>
                 </div>
             </div>
-            <div v-if="openStatus" class="w-[80%] h-[auto] flex justify-center items-center flex-wrap gap-y-10">
-              <div class="w-[100%] h-auto text-3xl text-black text-left">{{openData.title}}</div>
-              <div class="w-[100%] h-auto text-black text-left">{{openData.time}}</div>
-              <div class="w-[80%] h-[50vw] md:w-[50%] md:h-[20vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + openData.url + ')' }"></div>
-              <div class="w-[100%] h-auto text-black text-left">{{openData.imgText}}</div>
+            <div v-tothistop  v-if="openStatus" class="w-[80%] h-[auto] flex justify-center items-center flex-wrap gap-y-10">
+              <div class="w-[100%] h-auto flex justify-center items-center flex-wrap">
+                <div class="w-[100%] h-auto text-3xl text-black text-left">{{openData.title}}</div>
+                <div class="w-[100%] h-auto text-black text-left">{{openData.time}}</div>
+              </div>
+              <div class="w-[100%] h-auto flex justify-center items-center flex-wrap">
+                <div class="w-[80%] h-[50vw] md:w-[50%] md:h-[20vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + openData.url + ')' }"></div>
+                <div class="w-[80%] md:w-[100%] h-auto text-black text-left flex justify-center items-center">{{openData.imgText}}</div>
+              </div>
               <div class="w-[100%] h-auto text-black text-left">{{openData.content1}}</div>
               <div class="w-[100%] h-auto text-black text-left">{{openData.content2}}</div>
               <div class="w-[100%] h-auto py-[30px]">

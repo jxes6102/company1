@@ -47,14 +47,14 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(() => {
   const target = {
     top: 0,
     left: 0,
     behavior: 'smooth',
   }
   document.querySelector('#main').scrollTo(target)
-  next()
+  // next()
 })
 
 // router.beforeResolve(async () => {
