@@ -5,9 +5,20 @@
         class="relative text-black w-[80%] h-[48vw] md:w-[60%] md:h-[36vw] rounded-md mine-flex-center"
         :slides-per-view="1"
         :space-between="0"
+        :navigation="{
+          nextEl: '.next-button',
+          prevEl: '.previous-button',
+        }"
+        :loop='true'
         @swiper="onSwiper"
         @slideChange="onSlideChange"
       >
+        <div @click="next" class="next-button absolute w-[30px] h-[30px] md:w-[60px] md:h-[60px] top-1/2 -translate-y-1/2 right-[5%]  z-[30]">
+          <el-icon :color="'#E63946'" :size="isMobile ? '30' : '60'"><ArrowRightBold /></el-icon>
+        </div>
+        <div @click="previous" class="previous-button absolute w-[30px] h-[30px] md:w-[60px] md:h-[60px] top-1/2 -translate-y-1/2 left-[5%]  z-[30]">
+          <el-icon :color="'#E63946'" :size="isMobile ? '30' : '60'"><ArrowLeftBold /></el-icon>
+        </div>
         <swiper-slide v-for="(item, index) in swiperData" :key="index">
           <div
             class="w-[100%] h-[100%] bg-cover bg-center bg-no-repeat mine-flex-center"
@@ -17,6 +28,10 @@
           </div>
         </swiper-slide>
       </Swiper>
+    </div>
+    <div class="shadow-style-2 w-[100vw] h-auto py-[20px] bg-[url('/src/assets/img/green-9.jpg')] bg-cover bg-center bg-no-repeat flex justify-around items-center flex-wrap">
+      <div class="w-[80%] md:w-[auto] text-black text-xl md:text-2xl font-bold">讓XXXX循環不息，把美好XX留給下一代～</div>
+      <div class="w-[80%] md:w-[auto]"><button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">聯絡我們</button></div>
     </div>
     <div class="shadow-style-1 relative w-[100vw] h-auto py-4 flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-5.jpg')] bg-cover bg-center bg-no-repeat">
       <div class="w-[100%] h-auto text-2xl md:text-5xl py-2 font-bold text-[#21321a]">最新消息</div>
@@ -35,10 +50,6 @@
       <div class="w-[100%] h-auto py-[20px]">
         <button @click="toInformation" class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">瀏覽全部</button>
       </div>
-    </div>
-    <div class="shadow-style-2 w-[100vw] h-auto py-[20px] bg-[url('/src/assets/img/green-9.jpg')] bg-cover bg-center bg-no-repeat flex justify-around items-center flex-wrap">
-      <div class="w-[80%] md:w-[auto] text-black text-xl md:text-2xl font-bold">讓XXXX循環不息，把美好XX留給下一代～</div>
-      <div class="w-[80%] md:w-[auto]"><button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">聯絡我們</button></div>
     </div>
     <div class="shadow-style-1 relative w-[100vw] h-[auto] py-4 flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-6.jpg')] bg-cover bg-center bg-no-repeat">
       <div class="w-[100%] h-auto text-2xl md:text-5xl py-4 font-bold text-[#21321a]">合作廠商</div>
@@ -65,13 +76,17 @@
 import { useStore } from "vuex";
 import { ref,computed,onMounted,watch } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation } from "swiper";
 import { useRouter } from "vue-router";
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+// import 'swiper/css/pagination';
+// import 'swiper/css/scrollbar';
 const router = useRouter()
 const store = useStore()
+const isMobile = computed(() => {
+    return store.state.isMobile
+})
 const menuStatus = computed(() => {
     return store.state.menuStatus
 })
@@ -136,13 +151,28 @@ const institutionData = ref([
   },
 ])
 
-const onSwiper = (swiper) => {
-  // console.log(swiper);
+// onMounted(() => {
+// })
+
+let swiperItem = null
+const onSwiper = (element) => {
+  // console.log('element',element)
+  swiperItem = element;
 };
 
 const onSlideChange = () => {
-  console.log('slide change');
+  // console.log('slide change');
 };
+
+const next = () => {
+  // console.log('next')
+  swiperItem.slideNext()
+}
+
+const previous = () => {
+  // console.log('previous')
+  swiperItem.slidePrev()
+}
 
 const toInformation = () => {
   router.push({ path: 'information' })
