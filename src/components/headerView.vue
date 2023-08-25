@@ -148,10 +148,12 @@ const show = () => {
 
 const toLink = (val) => {
   router.push({ path: menuList.value[val].url })
+  store.commit('setMenu',false)
 }
 
 const tohome = () => {
   router.push({ path: '/' })
+  store.commit('setMenu',false)
 }
 
 </script>
