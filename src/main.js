@@ -33,3 +33,10 @@ app.directive('tothistop', {
         document.querySelector('#main').scrollTo(target)
     }
 })
+
+app.directive('tofocus', {
+    mounted(el) {
+        el.focus()
+    }
+})
+
