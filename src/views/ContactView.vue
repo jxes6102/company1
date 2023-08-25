@@ -78,12 +78,12 @@ const isMobile = computed(() => {
     return store.state.isMobile
 })
 
-watch(mailPhone, (nV, oV) => {
-    if((nV.length < mailRule.value.phone.min) || (nV.length > mailRule.value.phone.max)){
+watch(mailPhone, (newData, oldData) => {
+    if((newData.length < mailRule.value.phone.min) || (newData.length > mailRule.value.phone.max)){
         mailRule.value.phone.verify = false
         mailRule.value.phone.message = '請輸入大於'+ mailRule.value.phone.min + '且小於' + mailRule.value.phone.max + '個字元'
     }else if (mailRule.value.phone.special){
-        if(mailRule.value.phone.reg.test(nV)){
+        if(mailRule.value.phone.reg.test(newData)){
             mailRule.value.phone.verify = true
             mailRule.value.phone.message = ''
         }else{
@@ -96,12 +96,12 @@ watch(mailPhone, (nV, oV) => {
     }
 })
 
-watch(mailContent, (nV, oV) => {
-    if((nV.length < mailRule.value.content.min) || (nV.length > mailRule.value.content.max)){
+watch(mailContent, (newData, oldData) => {
+    if((newData.length < mailRule.value.content.min) || (newData.length > mailRule.value.content.max)){
         mailRule.value.content.verify = false
         mailRule.value.content.message = '請輸入大於'+ mailRule.value.content.min + '且小於' + mailRule.value.content.max + '個字元'
     }else if (mailRule.value.content.special){
-        if(mailRule.value.content.reg.test(nV)){
+        if(mailRule.value.content.reg.test(newData)){
             mailRule.value.content.verify = true
             mailRule.value.content.message = ''
         }else{
