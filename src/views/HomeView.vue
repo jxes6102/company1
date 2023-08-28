@@ -13,10 +13,10 @@
         @swiper="onSwiper"
         @slideChange="onSlideChange"
       >
-        <div @click="next" class="next-button absolute w-[30px] h-[30px] md:w-[60px] md:h-[60px] top-1/2 -translate-y-1/2 right-[5%]  z-[30]">
+        <div @click="next" class="next-button absolute w-[30px] h-[30px] md:w-[60px] md:h-[60px] top-1/2 -translate-y-1/2 right-[5%] z-[30] cursor-pointer">
           <el-icon :color="'#E63946'" :size="isMobile ? '30' : '60'"><ArrowRightBold /></el-icon>
         </div>
-        <div @click="previous" class="previous-button absolute w-[30px] h-[30px] md:w-[60px] md:h-[60px] top-1/2 -translate-y-1/2 left-[5%]  z-[30]">
+        <div @click="previous" class="previous-button absolute w-[30px] h-[30px] md:w-[60px] md:h-[60px] top-1/2 -translate-y-1/2 left-[5%] z-[30] cursor-pointer">
           <el-icon :color="'#E63946'" :size="isMobile ? '30' : '60'"><ArrowLeftBold /></el-icon>
         </div>
         <swiper-slide v-for="(item, index) in swiperData" :key="index">
@@ -33,14 +33,14 @@
       <div class="w-[80%] md:w-[auto] text-black text-xl md:text-2xl font-bold">讓XXXX循環不息，把美好XX留給下一代～</div>
       <div class="w-[80%] md:w-[auto]"><button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">聯絡我們</button></div>
     </div>
-    <div class="shadow-style-1 relative w-[100vw] h-auto py-4 flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-5.jpg')] bg-cover bg-center bg-no-repeat">
+    <div class="shadow-style-1 relative w-[100vw] h-auto py-4 flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-5.jpg')] bg-cover bg-center bg-no-repeat gap-y-10">
       <div class="w-[100%] h-auto text-2xl md:text-5xl py-2 font-bold text-[#21321a]">最新消息</div>
-      <div class="w-[80%] h-[auto] flex justify-evenly items-center flex-wrap gap-4">
+      <div class="w-[100%] h-[auto] max-w-[1140px] flex justify-center items-center flex-wrap gap-10">
         <div
           class="w-auto h-auto flex justify-center items-center flex-col"
           v-for="(item, index) in informationData" :key="index"
         >
-          <div class="w-[60vw] h-[50vw] md:w-[25vw] md:h-[20vw] rounded-md bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
+          <div class="w-[60vw] h-[50vw] md:w-[25vw] md:h-[15vw] max-w-[350px] max-h-[210px] rounded-md bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
           <div class="w-[auto] h-auto flex justify-evenly items-center flex-wrap">
             <div class="w-[100%] h-auto text-xl md:text-2xl text-[black] font-semibold">{{item.title}}</div>
             <div class="w-[100%] h-auto text-lg md:text-xl text-[black]">{{item.time}}</div>
