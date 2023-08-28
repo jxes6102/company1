@@ -3,7 +3,8 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     isMobile:false,
-    menuStatus:false
+    menuStatus:false,
+    informationChild:{}
   },
   getters: {
   },
@@ -14,6 +15,9 @@ export default createStore({
     setMenu (state,value){
       state.menuStatus = value
     },
+    setInformationChild (state,value){
+      state.informationChild = value
+    }
   },
   actions: {
   },

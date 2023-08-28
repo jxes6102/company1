@@ -40,8 +40,8 @@
           class="w-auto h-auto flex justify-center items-center flex-col"
           v-for="(item, index) in informationData" :key="index"
         >
-          <div class="w-[60vw] h-[50vw] md:w-[25vw] md:h-[15vw] max-w-[350px] max-h-[210px] rounded-md bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
-          <div class="w-[auto] h-auto flex justify-evenly items-center flex-wrap">
+          <div @click="toInformationDetail(item)" class="w-[60vw] h-[50vw] md:w-[25vw] md:h-[15vw] max-w-[350px] max-h-[210px] rounded-md bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
+          <div @click="toInformationDetail(item)" class="w-[auto] h-auto flex justify-evenly items-center flex-wrap">
             <div class="w-[100%] h-auto text-xl md:text-2xl text-[black] font-semibold">{{item.title}}</div>
             <div class="w-[100%] h-auto text-lg md:text-xl text-[black]">{{item.time}}</div>
           </div>
@@ -74,7 +74,7 @@
 /*eslint-disable*/
 // import HelloWorld from '@/components/HelloWorld.vue'
 import { useStore } from "vuex";
-import { ref,computed,onMounted,watch } from 'vue';
+import { ref,computed,inject } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation } from "swiper";
 import { useRouter } from "vue-router";
@@ -96,33 +96,7 @@ const swiperData = ref([
   {url:require('../assets/img/green-3.png')}
 ])
 
-const informationData = ref([
-  {
-    url:require('../assets/img/dog-1.png'),
-    title:'這是標題1',
-    time:'2023-04-29 10:02:20'
-  },
-  {
-    url:require('../assets/img/dog-2.png'),
-    title:'這是標題2',
-    time:'2023-04-29 10:02:20'
-  },
-  {
-    url:require('../assets/img/dog-3.png'),
-    title:'這是標題3',
-    time:'2023-04-29 10:02:20'
-  },
-  {
-    url:require('../assets/img/dog-4.png'),
-    title:'這是標題4',
-    time:'2023-04-29 10:02:20'
-  },
-  {
-    url:require('../assets/img/dog-5.png'),
-    title:'這是標題5',
-    time:'2023-04-29 10:02:20'
-  },
-])
+const informationData = inject('informationData')
 
 const institutionData = ref([
   {
@@ -176,6 +150,11 @@ const previous = () => {
 
 const toInformation = () => {
   router.push({ path: 'information' })
+}
+
+const toInformationDetail = (item) => {
+  store.commit('setInformationChild',item)
+  toInformation()
 }
 
 </script>
