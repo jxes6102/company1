@@ -14,10 +14,10 @@
         @slideChange="onSlideChange"
       >
         <div @click="next" class="next-button absolute w-[30px] h-[30px] md:w-[60px] md:h-[60px] top-1/2 -translate-y-1/2 right-[5%] z-[30] cursor-pointer">
-          <el-icon :color="'#E63946'" :size="isMobile ? '30' : '60'"><ArrowRightBold /></el-icon>
+          <el-icon :color="'#a7f2a7'" :size="isMobile ? '30' : '60'"><ArrowRightBold /></el-icon>
         </div>
         <div @click="previous" class="previous-button absolute w-[30px] h-[30px] md:w-[60px] md:h-[60px] top-1/2 -translate-y-1/2 left-[5%] z-[30] cursor-pointer">
-          <el-icon :color="'#E63946'" :size="isMobile ? '30' : '60'"><ArrowLeftBold /></el-icon>
+          <el-icon :color="'#a7f2a7'" :size="isMobile ? '30' : '60'"><ArrowLeftBold /></el-icon>
         </div>
         <swiper-slide v-for="(item, index) in swiperData" :key="index">
           <div
