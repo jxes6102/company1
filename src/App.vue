@@ -13,11 +13,11 @@
     >
       <router-view class="relative" :class="menuStatus ? 'pt-[50vh]' : 'pt-[10vh]'"/>
     </Transition> -->
-    <Transition
-      enter-active-class="animate__animated animate__fadeIn"
-    >
-      <router-view class="relative" :class="menuStatus ? 'pt-[50vh]' : 'pt-[10vh]'"/>
-    </Transition>
+    <router-view v-slot="{ Component, route }" class="relative" :class="menuStatus ? 'pt-[50vh]' : 'pt-[10vh]'">
+      <Transition enter-active-class="animate__animated animate__fadeIn">
+        <component :is="Component" :key="route.path" />
+      </Transition>
+    </router-view>
     <footerView></footerView>
   </div>
 </template>

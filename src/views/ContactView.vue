@@ -9,7 +9,7 @@
                     <input 
                         v-tofocus 
                         class="w-[100%] h-[100%] text-xl px-2"
-                        :class="mailRule.title.verify ? '' : 'border-2 border-[red] focus:outline-[red]'" 
+                        :class="!mailRule.title.verify && (mailRule.title.frequency !== 0) ? 'border-2 border-[red] focus:outline-[red]' : ''" 
                         placeholder="請輸入主旨" 
                         type="text" 
                         v-model="mailTitle"
@@ -22,7 +22,7 @@
                 <div class="w-[calc(100%_-_70px)] h-[50px] bg-red-600">
                     <input 
                         class="w-[100%] h-[100%] text-xl px-2"
-                        :class="mailRule.name.verify ? '' : 'border-2 border-[red] focus:outline-[red]'" 
+                        :class="!mailRule.name.verify && (mailRule.name.frequency !== 0) ? 'border-2 border-[red] focus:outline-[red]' : ''" 
                         placeholder="請輸入姓名" 
                         type="text" 
                         v-model="mailName"
@@ -35,7 +35,7 @@
                 <div class="w-[calc(100%_-_70px)] h-[50px] bg-red-600">
                     <input 
                         class="w-[100%] h-[100%] text-xl px-2"
-                        :class="mailRule.phone.verify ? '' : 'border-2 border-[red] focus:outline-[red]'" 
+                        :class="!mailRule.phone.verify && (mailRule.phone.frequency !== 0) ? 'border-2 border-[red] focus:outline-[red]' : ''" 
                         placeholder="請輸入電話" 
                         type="text" 
                         v-model="mailPhone"
@@ -48,7 +48,7 @@
                 <div class="w-[calc(100%_-_70px)] h-[50px] bg-red-600">
                     <input 
                         class="w-[100%] h-[100%] text-xl px-2"
-                        :class="mailRule.content.verify ? '' : 'border-2 border-[red] focus:outline-[red]'" 
+                        :class="!mailRule.content.verify && (mailRule.content.frequency !== 0) ? 'border-2 border-[red] focus:outline-[red]' : ''" 
                         placeholder="請輸入信箱" 
                         type="text" 
                         v-model="mailContent"
@@ -59,7 +59,7 @@
             <div class="w-[85%] md:w-[60%] h-auto text-2xl text-black text-left">詢問內容</div>
             <div class="w-[85%] md:w-[60%] h-[350px] flex justify-center items-start flex-wrap">
                 <textarea
-                    :class="mailRule.question.verify ? '' : 'border-2 border-[red] focus:outline-[red]'" 
+                    :class="!mailRule.question.verify && (mailRule.question.frequency !== 0) ? 'border-2 border-[red] focus:outline-[red]' : ''" 
                     class="w-[100%] h-[300px] text-xl py-2 px-4" 
                     placeholder="請輸入詢問內容" 
                     v-model="mailQuestion"
@@ -80,18 +80,17 @@ import emailjs from 'emailjs-com'
 import { ref,computed,watch } from "vue"
 import { ElMessage } from 'element-plus'
 
-
 const mailTitle = ref('')
 const mailName = ref('')
 const mailPhone = ref('')
 const mailContent = ref('')
 const mailQuestion = ref('')
 const mailRule = ref({
-    title:{special:false,max:30,min:2,verify:false,message:''},
-    name:{special:false,max:30,min:3,verify:false,message:''},
-    phone:{special:true,max:20,min:5,verify:false,message:'',reg:/^[0-9]*$/},
-    content:{special:true,max:30,min:5,verify:false,message:'',reg:/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/},
-    question:{special:false,max:100,min:1,verify:false,message:''},
+    title:{frequency:0,special:false,max:30,min:2,verify:false,message:''},
+    name:{frequency:0,special:false,max:30,min:3,verify:false,message:''},
+    phone:{frequency:0,special:true,max:20,min:5,verify:false,message:'',reg:/^[0-9]*$/},
+    content:{frequency:0,special:true,max:30,min:5,verify:false,message:'',reg:/^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/},
+    question:{frequency:0,special:false,max:100,min:1,verify:false,message:''},
 })
 
 const isMobile = computed(() => {
@@ -115,6 +114,7 @@ watch(mailTitle, (newData, oldData) => {
         mailRule.value.title.verify = true
         mailRule.value.title.message = ''
     }
+    mailRule.value.title.frequency++
 })
 
 watch(mailName, (newData, oldData) => {
@@ -133,6 +133,7 @@ watch(mailName, (newData, oldData) => {
         mailRule.value.name.verify = true
         mailRule.value.name.message = ''
     }
+    mailRule.value.name.frequency++
 })
 
 watch(mailPhone, (newData, oldData) => {
@@ -151,6 +152,7 @@ watch(mailPhone, (newData, oldData) => {
         mailRule.value.phone.verify = true
         mailRule.value.phone.message = ''
     }
+    mailRule.value.phone.frequency++
 })
 
 watch(mailContent, (newData, oldData) => {
@@ -169,6 +171,7 @@ watch(mailContent, (newData, oldData) => {
         mailRule.value.content.verify = true
         mailRule.value.content.message = ''
     }
+    mailRule.value.content.frequency++
 })
 
 watch(mailQuestion, (newData, oldData) => {
@@ -187,6 +190,7 @@ watch(mailQuestion, (newData, oldData) => {
         mailRule.value.question.verify = true
         mailRule.value.question.message = ''
     }
+    mailRule.value.question.frequency++
 })
 
 let mailLoading = false

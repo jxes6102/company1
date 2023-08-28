@@ -31,7 +31,7 @@
     </div>
     <div class="shadow-style-2 w-[100vw] h-auto py-[20px] bg-[url('/src/assets/img/green-9.jpg')] bg-cover bg-center bg-no-repeat flex justify-around items-center flex-wrap">
       <div class="w-[80%] md:w-[auto] text-black text-xl md:text-2xl font-bold">讓XXXX循環不息，把美好XX留給下一代～</div>
-      <div class="w-[80%] md:w-[auto]"><button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">聯絡我們</button></div>
+      <div class="w-[80%] md:w-[auto]"><button @click="toContact" class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">聯絡我們</button></div>
     </div>
     <div class="shadow-style-1 relative w-[100vw] h-auto py-4 flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-5.jpg')] bg-cover bg-center bg-no-repeat gap-y-10">
       <div class="w-[100%] h-auto text-2xl md:text-5xl py-2 font-bold text-[#21321a]">最新消息</div>
@@ -76,7 +76,7 @@
 import { useStore } from "vuex";
 import { ref,computed,inject } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Navigation } from "swiper";
+// import { Navigation } from "swiper";
 import { useRouter } from "vue-router";
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -155,6 +155,10 @@ const toInformation = () => {
 const toInformationDetail = (item) => {
   store.commit('setInformationChild',item)
   toInformation()
+}
+
+const toContact = () => {
+  router.push({ path: 'contact' })
 }
 
 </script>
