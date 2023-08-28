@@ -189,27 +189,50 @@ watch(mailQuestion, (newData, oldData) => {
     }
 })
 
+let mailLoading = false
 const testmail = () => {
+    
+    if(mailLoading) return false
+    mailLoading = true
+
     let verifyStatus = Object.values(mailRule.value).every(item => item.verify)
     if(!verifyStatus) {
         ElMessage({
             message: '請檢查表單格式',
             type: 'error',
         })
+        mailLoading = false
         return false
     }
     console.log('testmail')
 
     const templateParams = {
-        to_name: '接收人2',
-        from_name: '發送人2',
-        message:'測試2'
+        title:mailTitle.value,
+        name:mailName.value,
+        phone:mailPhone.value,
+        content:mailContent.value,
+        question:mailQuestion.value
     };
 
     // emailjs.send('service_rdl2pta','template_bpvt6uo', templateParams, 'cpJ_T33j_i0Dbi71_')
     // .then((response) => {
-    //     console.log('SUCCESS!', response.status, response.text);
+    //     // mailTitle.value = ''
+    //     // mailName.value = ''
+    //     // mailPhone.value = ''
+    //     // mailContent.value = ''
+    //     // mailQuestion.value = ''
+    //     console.log('SUCCESS!', response.status, response.text)
+    //     ElMessage({
+    //         message: '成功送出',
+    //         type: 'success',
+    //     })
+    //     mailLoading = false
     // }, (err) => {
+    //     ElMessage({
+    //         message: '送出失敗',
+    //         type: 'error',
+    //     })
+    //     mailLoading = false
     //     console.log('FAILED...', err);
     // });
 }
