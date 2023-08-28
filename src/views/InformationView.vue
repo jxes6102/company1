@@ -37,7 +37,7 @@
 <script setup>
 /*eslint-disable*/
 import bannerCompont from '@/components/bannerCompont.vue'
-import {ref,computed,inject} from 'vue'
+import {ref,computed,inject,onBeforeUnmount} from 'vue'
 import { useStore } from "vuex"
 
 const store = useStore()
@@ -52,7 +52,6 @@ const openStatus = ref(false)
 const open = (item) => {
   openStatus.value = true
   openData.value = item
-
 }
 
 const back = () => {
@@ -67,6 +66,10 @@ const init = () => {
   }
 }
 init()
+
+onBeforeUnmount(() => {
+  store.commit('setInformationChild',{})
+})
 
 
 </script>
