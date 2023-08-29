@@ -1,7 +1,7 @@
 <template>
     <div class="relative h-[auto] min-h-[100vh]">
         <bannerCompont></bannerCompont>
-        <div class="shadow-style-1 w-[100vw] h-auto min-h-[50vh] py-4 bg-[url('/src/assets/img/green-14.jpg')] bg-cover bg-center bg-no-repeat flex justify-center items-center flex-wrap">
+        <div class="shadow-style-1 w-[100vw] h-auto min-h-[50vh] py-8 bg-[url('/src/assets/img/green-14.jpg')] bg-cover bg-center bg-no-repeat flex justify-center items-center flex-wrap gap-y-2">
             <div class="w-[100%] h-auto flex justify-center items-center flex-wrap gap-y-10">
                 <div class="w-[80%] h-auto flex justify-center items-center flex-wrap gap-y-2">
                     <div class="w-[100%] h-auto text-3xl font-bold">應徵流程</div>
@@ -16,15 +16,28 @@
                             <div class="w-[50vw] h-[50vw] md:w-[10vw] md:h-[10vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
                             <div class="w-[auto] h-auto text-xl md:text-xl text-[black] font-semibold">{{item.title}}</div>
                         </div>
-                        <div class="w-[auto] h-auto text-xl md:text-xl text-[#319c2e] font-semibold">{{item.content}}</div>
+                        <div class="w-[auto] h-auto text-xl text-[#319c2e] font-semibold">{{item.content}}</div>
                     </div>
                 </div>
-                
-                
+                <div class="w-[100%] h-auto mine-flex-center">
+                    <button 
+                        @click="toJob" 
+                        class="bg-[#009B4C] px-[30px] py-[15px] text-white text-xl font-bold rounded-md mine-flex-center" >
+                        <el-icon size="25"><Promotion /></el-icon>
+                        前往104
+                    </button>
+                </div>
+                <div class="w-[90%] md:w-[80%] h-auto flex justify-center items-center flex-wrap">
+                    <img class="w-[20vw] h-[20vw] md:w-[10vw] md:h-[10vw]" src="../assets/img/tips.png" alt="">
+                    <div class="w-[60vw] md:w-auto h-auto flex justify-center items-start flex-col">
+                        <div class="text-xl md:text-3xl font-bold">小提醒</div>
+                        <div class="text-base text-left">參加面試而未錄取者，將會以E-MAIL或電話通知</div>
+                        <div class="text-base text-left">未有合適職缺者，履歷將轉入菁鉐人才庫</div>
+                    </div>
+                </div>
             </div>
-            <!-- <div class="w-[100%] h-auto">
-                <div>如何前往</div>
-                
+            <!-- <div class="w-[100%] h-auto flex justify-center items-center flex-wrap">
+                <div class="w-[80%] h-auto text-3xl font-bold flex justify-center items-center flex-wrap">如何前往</div>
             </div> -->
         </div>
     </div>
@@ -56,6 +69,11 @@ const jobData = ref([
       content:'安排報到作業',
     },
 ])
+
+const toJob = () => {
+    // console.log('toJob')
+    window.open('https://www.104.com.tw/jobs/main/', '_blank');
+}
 
 
 </script>

@@ -30,11 +30,15 @@
       </Swiper>
     </div>
     <div class="shadow-style-2 w-[100vw] h-auto py-[20px] bg-[url('/src/assets/img/green-9.jpg')] bg-cover bg-center bg-no-repeat flex justify-around items-center flex-wrap">
-      <div class="w-[80%] md:w-[auto] text-black text-xl md:text-2xl font-bold">讓XXXX循環不息，把美好XX留給下一代～</div>
-      <div class="w-[80%] md:w-[auto]"><button @click="toContact" class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">聯絡我們</button></div>
+      <!-- <div class="w-[80%] md:w-[auto] text-black text-xl md:text-2xl font-bold">回收補助難事交給菁鉐。永續保衛家園交給您們!</div>
+      <div class="w-[80%] md:w-[auto]"><button @click="toContact" class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">聯絡我們</button></div> -->
+      <div class="w-auto h-auto max-w-[90%] flex justify-around items-center flex-wrap gap-x-2">
+        <div class="w-[auto] text-black text-xl md:text-2xl font-bold">回收補助難事交給菁鉐。永續保衛家園交給您們!</div>
+        <div class="w-[auto]"><button @click="toContact" class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">聯絡我們</button></div>
+      </div>
     </div>
     <div class="shadow-style-1 relative w-[100vw] h-auto py-4 flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-5.jpg')] bg-cover bg-center bg-no-repeat gap-y-10">
-      <div class="w-[100%] h-auto text-2xl md:text-5xl py-2 font-bold text-[#21321a]">最新消息</div>
+      <div class="w-[100%] h-auto text-[2rem] md:text-[3rem] tracking-[5px] md:tracking-[20px] font-normal">最新消息</div>
       <div class="w-[100%] h-[auto] max-w-[1140px] flex justify-center items-center flex-wrap gap-10">
         <div
           class="w-auto h-auto flex justify-center items-center flex-col"
@@ -52,16 +56,17 @@
       </div>
     </div>
     <div class="shadow-style-1 relative w-[100vw] h-[auto] py-4 flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-6.jpg')] bg-cover bg-center bg-no-repeat">
-      <div class="w-[100%] h-auto text-2xl md:text-5xl py-4 font-bold text-[#21321a]">合作廠商</div>
-      <div class="w-[80%] h-[auto] flex justify-evenly items-center flex-wrap gap-x-4 gap-y-10">
+      <!-- <div class="w-[100%] h-auto text-2xl md:text-5xl py-4 font-bold text-[#21321a]">合作廠商</div> -->
+      <div class="w-[100%] h-auto text-[2rem] md:text-[3rem] tracking-[5px] md:tracking-[20px] font-normal">合作廠商</div>
+      <div class="w-[95%] md:w-[90%] h-[auto] flex justify-evenly items-center flex-wrap gap-x-4 gap-y-10">
         <div 
           class="transition-all hover:scale-110 w-auto h-auto flex justify-center items-center flex-wrap"
           v-for="(item, index) in institutionData" :key="index"
         >
-          <div class="w-[50vw] h-[50vw] md:w-[15vw] md:h-[15vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
-          <div class="w-[100%] h-auto flex justify-evenly items-center flex-wrap">
+          <div class="w-[10vw] h-[10vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
+          <!-- <div class="w-[100%] h-auto flex justify-evenly items-center flex-wrap">
             <div class="w-[100%] h-auto text-xl md:text-2xl text-[black] font-semibold">{{item.title}}</div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
