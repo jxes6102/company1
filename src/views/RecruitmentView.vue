@@ -4,7 +4,7 @@
         <div class="shadow-style-1 w-[100vw] h-auto min-h-[50vh] py-8 bg-[url('/src/assets/img/green-14.jpg')] bg-cover bg-center bg-no-repeat flex justify-center items-center flex-wrap gap-y-2">
             <div class="w-[100%] h-auto flex justify-center items-center flex-wrap gap-y-10">
                 <div class="w-[80%] h-auto flex justify-center items-center flex-wrap gap-y-2">
-                    <div class="w-[100%] h-auto text-3xl font-bold">應徵流程</div>
+                    <div class="w-[100%] h-auto mine-title-style">應徵流程</div>
                     <div class="w-[100%] h-auto text-base">在菁鉐！我們提供的不只是一個工作機會，更是提供讓您有展現能力、實現夢想的舞台。不管您是懷抱夢想要實現的應屆畢業生或是想展現能力的專業人士，菁鉐都誠摯歡迎您的加入！現在立刻「前往104」查詢職務並投遞您的履歷，人資會審視職缺並主動與您連繫安排面試。</div>
                 </div>
                 <div class="w-[80%] h-auto flex justify-center items-center flex-wrap gap-y-8">
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="shadow-style-1 w-[100vw] h-auto min-h-[50vh] py-8 bg-[url('/src/assets/img/green-15.jpg')] bg-cover bg-center bg-no-repeat flex justify-center items-center flex-wrap gap-y-10">
-            <div class="w-[90%] h-auto text-3xl font-bold flex justify-center items-center flex-wrap">如何前往</div>
+            <div class="w-[90%] h-auto mine-title-style flex justify-center items-center flex-wrap">如何前往</div>
             <div class="w-[100%] h-auto flex justify-center items-center flex-wrap gap-4">
                 <div 
                     class="w-[100%] md:w-[30%] h-[auto] flex justify-center items-center flex-wrap gap-y-2" 

@@ -3,7 +3,7 @@
         <bannerCompont></bannerCompont>
         <div class="shadow-style-1 w-[100%] h-auto min-h-[50vh] py-4 bg-[url('/src/assets/img/green-13.jpg')] bg-cover bg-center bg-no-repeat flex justify-center items-center flex-wrap gap-y-10">
             <div v-if="!openStatus" class="w-[90%] md:w-[80%] h-[auto] flex justify-center items-center flex-wrap">
-                <div class="w-[100%] h-auto text-2xl md:text-4xl py-2 font-bold text-[#21321a] text-left">服務介紹列表</div>
+                <div class="w-[100%] h-auto mine-title-style py-2 text-[#21321a] text-left">服務介紹列表</div>
                 <div
                     class="w-[100%] h-auto flex justify-start items-center flex-wrap gap-x-4"
                     v-for="(item, index) in serviceData" :key="index"

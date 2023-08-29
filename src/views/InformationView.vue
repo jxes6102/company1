@@ -2,7 +2,7 @@
     <div class="relative h-[auto] min-h-[100vh]">
         <bannerCompont></bannerCompont>
         <div class="shadow-style-1 w-[100vw] h-auto py-[40px] bg-[url('/src/assets/img/green-11.jpg')] bg-cover bg-center bg-no-repeat flex justify-around items-center flex-wrap gap-y-10">
-            <div v-if="!openStatus" class="w-[100%] h-auto text-2xl md:text-5xl py-2 font-bold text-[#21321a]">最新消息列表</div>
+            <div v-if="!openStatus" class="w-[100%] mine-title-style py-2 text-[#21321a]">最新消息列表</div>
             <div v-if="!openStatus" class="w-[100%] h-[auto] max-w-[1140px] flex justify-center items-center flex-wrap gap-10">
               <div
                 class="w-auto h-auto flex justify-center items-center flex-col"
