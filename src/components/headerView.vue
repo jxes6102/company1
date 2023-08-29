@@ -16,7 +16,7 @@
                 <ul class="relative w-full">
                   <li 
                     v-for="(item, index) in menuList" :key="index"
-                    class="w-[20%] h-[8vh] mine-flex-center text-[#6a6a6a] text-2xl font-bold hover:text-[#2fbc36]"
+                    class="w-[20%] h-[8vh] mine-flex-center text-[#6a6a6a] text-xl font-bold hover:text-[#2fbc36]"
                     @click="toLink(index)"
                   >{{item.text}}</li>
                   <!-- <li class="w-[25%] h-[8vh] mine-flex-center text-[red] text-2xl font-extrabold hover:text-3xl ">關於OO</li>
@@ -84,7 +84,7 @@
               <ul class="relative w-full">
                 <li 
                   v-for="(item, index) in menuList" :key="index"
-                  class="w-[100%] h-[8vh] mine-flex-center text-[#6a6a6a] text-2xl font-bold hover:text-[#2fbc36]"
+                  class="w-[100%] h-[8vh] mine-flex-center text-[#6a6a6a] text-xl font-bold hover:text-[#2fbc36]"
                   @click="toLink(index)"
                 >{{item.text}}</li>
               </ul>

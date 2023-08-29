@@ -13,10 +13,10 @@
         @swiper="onSwiper"
         @slideChange="onSlideChange"
       >
-        <div @click="next" class="next-button absolute w-[30px] h-[30px] md:w-[60px] md:h-[60px] top-1/2 -translate-y-1/2 right-[5%] z-[30] cursor-pointer">
+        <div @click="next" class="next-button absolute w-[30px] h-[30px] md:w-[60px] md:h-[60px] top-1/2 -translate-y-1/2 right-[3%] z-[30] cursor-pointer">
           <el-icon :color="'#a7f2a7'" :size="isMobile ? '30' : '60'"><ArrowRightBold /></el-icon>
         </div>
-        <div @click="previous" class="previous-button absolute w-[30px] h-[30px] md:w-[60px] md:h-[60px] top-1/2 -translate-y-1/2 left-[5%] z-[30] cursor-pointer">
+        <div @click="previous" class="previous-button absolute w-[30px] h-[30px] md:w-[60px] md:h-[60px] top-1/2 -translate-y-1/2 left-[3%] z-[30] cursor-pointer">
           <el-icon :color="'#a7f2a7'" :size="isMobile ? '30' : '60'"><ArrowLeftBold /></el-icon>
         </div>
         <swiper-slide v-for="(item, index) in swiperData" :key="index">
@@ -24,7 +24,7 @@
             class="w-[100%] h-[100%] bg-cover bg-center bg-no-repeat mine-flex-center"
             :style="{ 'background-image': 'url(' + item.url + ')' }"
           >
-            <div class="text-3xl bg-[red]">{{ '這是標題:' + (index+1)}}</div>
+            <!-- <div class="text-3xl bg-[red]">{{ '這是標題:' + (index+1)}}</div> -->
           </div>
         </swiper-slide>
       </Swiper>
