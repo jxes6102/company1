@@ -36,9 +36,20 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="w-[100%] h-auto flex justify-center items-center flex-wrap">
-                <div class="w-[80%] h-auto text-3xl font-bold flex justify-center items-center flex-wrap">如何前往</div>
-            </div> -->
+        </div>
+        <div class="shadow-style-1 w-[100vw] h-auto min-h-[50vh] py-8 bg-[url('/src/assets/img/green-15.jpg')] bg-cover bg-center bg-no-repeat flex justify-center items-center flex-wrap gap-y-10">
+            <div class="w-[90%] h-auto text-3xl font-bold flex justify-center items-center flex-wrap">如何前往</div>
+            <div class="w-[100%] h-auto flex justify-center items-center flex-wrap gap-4">
+                <div 
+                    class="w-[100%] md:w-[30%] h-[auto] flex justify-center items-center flex-wrap gap-y-2" 
+                    v-for="(item, index) in trafficData" 
+                    :key="index"
+                >
+                    <div class="rounded-md w-[40vw] h-[40vw] md:w-[15vw] md:h-[15vw] bg-cover bg-center bg-no-repeat mine-flex-center" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
+                    <div class="w-[100%] text-2xl">{{ item.title }}</div>
+                    <div class="w-[80%] text-xl">{{ item.content }}</div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -67,6 +78,24 @@ const jobData = ref([
       url:require('../assets/img/participation.png'),
       title:'4加入菁鉐',
       content:'安排報到作業',
+    },
+])
+
+const trafficData = ref([
+    {
+      url:require('../assets/img/car.png'),
+      title:'自行開車',
+      content:'中山高大雅交流道下(往台中方向) --> 左轉進入環中路 --> 行至崇德路二段左轉 --> 行至崇德七路右轉到底，公司即在左側。',
+    },
+    {
+      url:require('../assets/img/train.png'),
+      title:'搭乘台鐵',
+      content:'搭乘台鐵至台中太原火車站，到站後建議轉搭計程車至公司(約10分)。',
+    },
+    {
+      url:require('../assets/img/heighttrain.png'),
+      title:'搭乘高鐵',
+      content:'搭乘台灣高鐵至台中烏日站，到站後建議轉搭計程車至公司(約20分)。',
     },
 ])
 
