@@ -63,7 +63,7 @@
           class="transition-all hover:scale-110 w-[25%] md:w-[30%] h-auto flex justify-center items-center flex-wrap"
           v-for="(item, index) in institutionData" :key="index"
         >
-          <div class="w-[10vw] h-[10vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
+          <div class="w-[15vw] h-[15vw] md:w-[10vw] md:h-[10vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
           <!-- <div class="w-[10vw] h-[10vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div> -->
           <!-- <div class="w-[100%] h-auto flex justify-evenly items-center flex-wrap">
             <div class="w-[100%] h-auto text-xl md:text-2xl text-[black] font-semibold">{{item.title}}</div>
