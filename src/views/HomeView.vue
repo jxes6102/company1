@@ -37,7 +37,7 @@
     </div>
     <div class="shadow-style-1 relative w-[100vw] h-auto py-4 flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-5.jpg')] bg-cover bg-center bg-no-repeat gap-y-10">
       <div class="w-[100%] h-auto mine-title-style">最新消息</div>
-      <div class="w-[100%] h-[auto] max-w-[1140px] flex justify-center items-center flex-wrap gap-[2vw]">
+      <div class="w-[100%] h-[auto] max-w-[1140px] flex justify-center items-center flex-wrap gap-[1vw]">
         <div
           class="w-auto h-auto flex justify-center items-center flex-col"
           v-for="(item, index) in informationData" :key="index"

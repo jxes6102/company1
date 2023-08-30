@@ -3,7 +3,7 @@
         <bannerCompont></bannerCompont>
         <div class="shadow-style-1 w-[100vw] h-auto py-[40px] bg-[url('/src/assets/img/green-11.jpg')] bg-cover bg-center bg-no-repeat flex justify-around items-center flex-wrap gap-y-10">
             <div v-if="!openStatus" class="w-[100%] mine-title-style py-2 text-[#21321a]">最新消息列表</div>
-            <div v-if="!openStatus" class="w-[100%] h-[auto] max-w-[1140px] flex justify-center items-center flex-wrap gap-[2vw]">
+            <div v-if="!openStatus" class="w-[100%] h-[auto] max-w-[1140px] flex justify-center items-center flex-wrap gap-[1vw]">
               <div
                 class="w-auto h-auto flex justify-center items-center flex-col"
                 v-for="(item, index) in informationData" :key="index"
