@@ -55,7 +55,7 @@
     </div>
     <div class="shadow-style-1 relative w-[100vw] h-[auto] py-10 flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-6.jpg')] bg-cover bg-center bg-no-repeat gap-y-4">
       <div class="w-[100%] h-auto mine-title-style">合作廠商</div>
-      <div class="w-[90%] h-[auto] flex justify-evenly items-center flex-wrap gap-x-4 gap-y-10 bg-white p-5 rounded-xl">
+      <div class="w-[90%] h-[auto] flex justify-evenly items-center flex-wrap gap-x-4 gap-y-10 p-5 rounded-xl">
         <div 
           class="transition-all hover:scale-110 w-[25%] h-auto flex justify-center items-center flex-wrap"
           v-for="(item, index) in institutionData" :key="index"
