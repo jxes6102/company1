@@ -55,18 +55,22 @@
         <button @click="toInformation" class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">瀏覽全部</button>
       </div>
     </div>
-    <div class="shadow-style-1 relative w-[100vw] h-[auto] py-4 flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-6.jpg')] bg-cover bg-center bg-no-repeat">
+    <div class="shadow-style-1 relative w-[100vw] h-[auto] py-10 flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-6.jpg')] bg-cover bg-center bg-no-repeat">
       <!-- <div class="w-[100%] h-auto text-2xl md:text-5xl py-4 font-bold text-[#21321a]">合作廠商</div> -->
       <div class="w-[100%] h-auto mine-title-style">合作廠商</div>
-      <div class="w-[95%] md:w-[90%] h-[auto] flex justify-evenly items-center flex-wrap gap-x-4 gap-y-10">
+      <div class="w-[80%] h-[auto] flex justify-evenly items-center flex-wrap gap-x-4 gap-y-10">
         <div 
-          class="transition-all hover:scale-110 w-auto h-auto flex justify-center items-center flex-wrap"
+          class="transition-all hover:scale-110 w-[25%] md:w-[30%] h-auto flex justify-center items-center flex-wrap"
           v-for="(item, index) in institutionData" :key="index"
         >
           <div class="w-[10vw] h-[10vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
+          <!-- <div class="w-[10vw] h-[10vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div> -->
           <!-- <div class="w-[100%] h-auto flex justify-evenly items-center flex-wrap">
             <div class="w-[100%] h-auto text-xl md:text-2xl text-[black] font-semibold">{{item.title}}</div>
           </div> -->
+        </div>
+        <div class="w-[100%] h-auto py-[20px]">
+          <button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">瀏覽全部</button>
         </div>
       </div>
     </div>
