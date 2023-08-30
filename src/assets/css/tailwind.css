@@ -14,5 +14,5 @@
 }
 
 .mine-title-style {
-    @apply text-[2rem] md:text-[3rem] tracking-[5px] md:tracking-[20px] font-normal
+    @apply text-[30px] md:text-[42px] tracking-[-0.5px] font-black leading-[46px]
 }
