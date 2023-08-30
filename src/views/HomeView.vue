@@ -58,23 +58,19 @@
     <div class="shadow-style-1 relative w-[100vw] h-[auto] py-10 flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-6.jpg')] bg-cover bg-center bg-no-repeat gap-y-4">
       <!-- <div class="w-[100%] h-auto text-2xl md:text-5xl py-4 font-bold text-[#21321a]">合作廠商</div> -->
       <div class="w-[100%] h-auto mine-title-style">合作廠商</div>
-      <div class="w-[80%] h-[auto] flex justify-evenly items-center flex-wrap gap-x-4 gap-y-10">
+      <div class="w-[90%] h-[auto] flex justify-evenly items-center flex-wrap gap-x-4 gap-y-10 bg-white p-5 rounded-xl">
         <div 
-          class="transition-all hover:scale-110 w-[25%] md:w-[30%] h-auto flex justify-center items-center flex-wrap"
+          class="transition-all hover:scale-110 w-[25%] h-auto flex justify-center items-center flex-wrap"
           v-for="(item, index) in institutionData" :key="index"
         >
-          <div class="w-[15vw] h-[15vw] md:w-[10vw] md:h-[10vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
-          <!-- <div class="w-[10vw] h-[10vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div> -->
-          <!-- <div class="w-[100%] h-auto flex justify-evenly items-center flex-wrap">
-            <div class="w-[100%] h-auto text-xl md:text-2xl text-[black] font-semibold">{{item.title}}</div>
-          </div> -->
-        </div>
-        <div class="w-[100%] h-auto py-[20px]">
-          <button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">瀏覽更多</button>
+          <!-- <div class="w-[15vw] h-[15vw] md:w-[10vw] md:h-[10vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div> -->
+          <img :src="item.url" alt="">
         </div>
       </div>
+      <div class="w-[100%] h-auto py-[20px]">
+        <button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">瀏覽更多</button>
+      </div>
     </div>
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <!-- <HelloWorld msg="I Don't Wanna Do This Anymore"/> -->
   </div>
 </template>
@@ -102,38 +98,43 @@ const menuStatus = computed(() => {
 const swiperData = ref([
   {url:require('../assets/img/green-1.png')},
   {url:require('../assets/img/green-2.png')},
-  {url:require('../assets/img/green-3.png')}
+  {url:require('../assets/img/green-3.png')},
 ])
 
 const informationData = inject('informationData')
 
 const institutionData = ref([
   {
-    url:require('../assets/img/institution-1.png'),
+    url:require('../assets/img/factory-1.png'),
     title:'這是標題1',
   },
   {
-    url:require('../assets/img/institution-2.png'),
+    url:require('../assets/img/factory-2.png'),
     title:'這是標題2',
   },
   {
-    url:require('../assets/img/institution-3.png'),
+    url:require('../assets/img/factory-3.png'),
     title:'這是標題3',
   },
   {
-    url:require('../assets/img/institution-4.png'),
+    url:require('../assets/img/factory-4.png'),
     title:'這是標題4',
   },
   {
-    url:require('../assets/img/institution-5.png'),
+    url:require('../assets/img/factory-5.png'),
     title:'這是標題5',
   },
   {
-    url:require('../assets/img/institution-6.png'),
+    url:require('../assets/img/factory-6.png'),
     title:'這是標題6',
   },
 ])
 
+// let img = new Image()
+// img.src = require('../assets/img/factory-1.png')
+// img.onload = function () {
+//     console.log(`the image dimensions are ${img.width}x${img.height}`)
+// };
 // onMounted(() => {
 // })
 
