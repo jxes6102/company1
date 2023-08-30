@@ -95,7 +95,7 @@
 
 <script setup>
 /*eslint-disable*/
-import { ref,computed } from "vue";
+import { ref,computed,inject } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 const store = useStore()
@@ -108,13 +108,7 @@ const props = defineProps({
     }
 })
 
-const menuList = ref([
-  {text:"關於菁鉐",url:'about'},
-  {text:"最新消息",url:'information'},
-  {text:"服務介紹",url:'service'},
-  {text:"聯絡我們",url:'contact'},
-  {text:"徵才資訊",url:'recruitment'}
-])
+const menuList = inject('linkData')
 
 const isMobile = computed(() => {
     if(!store.state.isMobile) store.commit('setMenu',false)

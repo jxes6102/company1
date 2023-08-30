@@ -10,20 +10,13 @@
 </template>
 <script setup>
 /*eslint-disable*/
-import { computed } from 'vue'
+import { computed,inject } from 'vue'
 import { useRouter } from "vue-router";
 const router = useRouter()
 // console.log('router',router.currentRoute.value.name)
-
+const list = inject('linkData')
 const title = computed(() => {
-    const list = [
-        {name:'information',text:'最新消息'},
-        {name:'service',text:'服務介紹'},
-        {name:'contact',text:'聯絡我們'},
-        {name:'about',text:'關於菁鉐'},
-        {name:'recruitment',text:"徵才資訊"}
-    ]
-    let target = list.find((item)=>item.name === router.currentRoute.value.name).text
+    let target = list.value.find((item)=>item.url === router.currentRoute.value.name).text
     return target
 })
 

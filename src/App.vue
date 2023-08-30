@@ -74,7 +74,14 @@
     },
   ])
   provide('informationData', informationData)
-
+  const linkData = ref([
+    {text:"關於菁鉐",url:'about'},
+    {text:"最新消息",url:'information'},
+    {text:"服務介紹",url:'service'},
+    {text:"聯絡我們",url:'contact'},
+    {text:"徵才資訊",url:'recruitment'}
+  ])
+  provide('linkData', linkData)
   const menuStatus = computed(() => {
       return store.state.menuStatus
   })
