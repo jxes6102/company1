@@ -30,8 +30,6 @@
       </Swiper>
     </div>
     <div class="shadow-style-2 w-[100vw] h-auto py-[20px] bg-[url('/src/assets/img/green-9.jpg')] bg-cover bg-center bg-no-repeat flex justify-around items-center flex-wrap">
-      <!-- <div class="w-[80%] md:w-[auto] text-black text-xl md:text-2xl font-bold">回收補助難事交給菁鉐。永續保衛家園交給您們!</div>
-      <div class="w-[80%] md:w-[auto]"><button @click="toContact" class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">聯絡我們</button></div> -->
       <div class="w-auto h-auto max-w-[90%] flex justify-around items-center flex-wrap gap-x-2">
         <div class="w-[auto] text-black text-xl md:text-2xl font-bold">回收補助難事交給菁鉐。永續保衛家園交給您們!</div>
         <div class="w-[auto]"><button @click="toContact" class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">聯絡我們</button></div>
@@ -39,15 +37,15 @@
     </div>
     <div class="shadow-style-1 relative w-[100vw] h-auto py-4 flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-5.jpg')] bg-cover bg-center bg-no-repeat gap-y-10">
       <div class="w-[100%] h-auto mine-title-style">最新消息</div>
-      <div class="w-[100%] h-[auto] max-w-[1140px] flex justify-center items-center flex-wrap gap-10">
+      <div class="w-[100%] h-[auto] max-w-[1140px] flex justify-center items-center flex-wrap gap-[2vw]">
         <div
           class="w-auto h-auto flex justify-center items-center flex-col"
           v-for="(item, index) in informationData" :key="index"
         >
-          <div @click="toInformationDetail(item)" class="w-[60vw] h-[50vw] md:w-[25vw] md:h-[15vw] max-w-[350px] max-h-[210px] rounded-md bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
-          <div @click="toInformationDetail(item)" class="w-[auto] h-auto flex justify-evenly items-center flex-wrap">
-            <div class="w-[100%] h-auto text-xl md:text-2xl text-[black] font-semibold">{{item.title}}</div>
-            <div class="w-[100%] h-auto text-lg md:text-xl text-[black]">{{item.time}}</div>
+          <div @click="toInformationDetail(item)" class="w-[80vw] h-[48vw] md:w-[25vw] md:h-[15vw] max-w-[350px] max-h-[210px] rounded-md bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
+          <div @click="toInformationDetail(item)" class="w-[100%] h-auto flex justify-evenly items-center flex-col">
+            <div class="w-auto h-auto text-xl md:text-2xl text-[black] font-semibold">{{item.title}}</div>
+            <div class="w-auto h-auto text-lg md:text-xl text-[black]">{{item.time}}</div>
           </div>
         </div>
       </div>
@@ -56,7 +54,6 @@
       </div>
     </div>
     <div class="shadow-style-1 relative w-[100vw] h-[auto] py-10 flex justify-center items-center flex-wrap bg-[url('/src/assets/img/green-6.jpg')] bg-cover bg-center bg-no-repeat gap-y-4">
-      <!-- <div class="w-[100%] h-auto text-2xl md:text-5xl py-4 font-bold text-[#21321a]">合作廠商</div> -->
       <div class="w-[100%] h-auto mine-title-style">合作廠商</div>
       <div class="w-[90%] h-[auto] flex justify-evenly items-center flex-wrap gap-x-4 gap-y-10 bg-white p-5 rounded-xl">
         <div 
@@ -64,7 +61,7 @@
           v-for="(item, index) in institutionData" :key="index"
         >
           <!-- <div class="w-[15vw] h-[15vw] md:w-[10vw] md:h-[10vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div> -->
-          <img :src="item.url" alt="">
+          <img class="w-[100%] h-[100%] max-w-[300px] max-h-[200px]" :src="item.url" alt="">
         </div>
       </div>
       <div class="w-[100%] h-auto py-[20px]">

@@ -3,15 +3,15 @@
         <bannerCompont></bannerCompont>
         <div class="shadow-style-1 w-[100vw] h-auto py-[40px] bg-[url('/src/assets/img/green-11.jpg')] bg-cover bg-center bg-no-repeat flex justify-around items-center flex-wrap gap-y-10">
             <div v-if="!openStatus" class="w-[100%] mine-title-style py-2 text-[#21321a]">最新消息列表</div>
-            <div v-if="!openStatus" class="w-[100%] h-[auto] max-w-[1140px] flex justify-center items-center flex-wrap gap-10">
+            <div v-if="!openStatus" class="w-[100%] h-[auto] max-w-[1140px] flex justify-center items-center flex-wrap gap-[2vw]">
               <div
                 class="w-auto h-auto flex justify-center items-center flex-col"
                 v-for="(item, index) in informationData" :key="index"
               >
-                <div @click="open(item)" class="w-[60vw] h-[50vw] md:w-[25vw] md:h-[15vw] max-w-[350px] max-h-[210px] rounded-md bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
-                <div @click="open(item)" class="w-[auto] h-auto flex justify-evenly items-center flex-wrap">
-                  <div class="w-[100%] h-auto text-xl md:text-2xl text-[black] font-semibold">{{item.title}}</div>
-                  <div class="w-[100%] h-auto text-lg md:text-xl text-[black]">{{item.time}}</div>
+                <div @click="open(item)" class="w-[80vw] h-[48vw] md:w-[25vw] md:h-[15vw] max-w-[350px] max-h-[210px] rounded-md bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + item.url + ')' }"></div>
+                <div @click="open(item)" class="w-[100%] h-auto flex justify-evenly items-center flex-col">
+                  <div class="w-auto h-auto text-xl md:text-2xl text-[black] font-semibold">{{item.title}}</div>
+                  <div class="w-auto h-auto text-lg md:text-xl text-[black]">{{item.time}}</div>
                 </div>
               </div>
             </div>
@@ -21,8 +21,8 @@
                 <div class="w-[100%] h-auto text-black text-left">{{openData.time}}</div>
               </div>
               <div class="w-[100%] h-auto flex justify-center items-center flex-wrap">
-                <div class="w-[80%] h-[50vw] md:w-[50%] md:h-[20vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + openData.url + ')' }"></div>
-                <div class="w-[80%] md:w-[100%] h-auto text-black text-left flex justify-center items-center">{{openData.imgText}}</div>
+                <div class="w-[80vw] h-[48vw] md:w-[50vw] md:h-[30vw] bg-cover bg-center bg-no-repeat" :style="{ 'background-image': 'url(' + openData.url + ')' }"></div>
+                <div class="w-[100%] md:w-[50%] h-auto text-black text-center flex justify-center items-center">{{openData.imgText}}</div>
               </div>
               <div class="w-[100%] h-auto text-black text-left">{{openData.content1}}</div>
               <div class="w-[100%] h-auto text-black text-left">{{openData.content2}}</div>
