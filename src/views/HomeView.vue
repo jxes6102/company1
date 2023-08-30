@@ -70,7 +70,7 @@
           </div> -->
         </div>
         <div class="w-[100%] h-auto py-[20px]">
-          <button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">瀏覽全部</button>
+          <button class=" bg-[#009B4C] px-[20px] py-[12px] text-white text-xl font-bold rounded-md">瀏覽更多</button>
         </div>
       </div>
     </div>
