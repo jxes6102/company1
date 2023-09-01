@@ -79,6 +79,28 @@ import bannerCompont from '@/components/bannerCompont.vue'
 import emailjs from 'emailjs-com'
 import { ref,computed,watch } from "vue"
 import { ElMessage } from 'element-plus'
+// import { Email } from '@/mail/smtp.js'
+
+// const mailTest = () => {
+//   console.log('do mailTest')
+//   Email.send({
+//     //   SecureToken:'90d74c9b-48e7-456b-99d0-f492b41479c4',
+//       Host : "smtp.elasticemail.com",
+//     //   Port : 2525,
+//       Username : "jxes6102@gmail.com",
+//       Password : "E3FCB3C1451A66AF8C920FF5C61C718BC6B6",
+//       To : 'jxes6102@gmail.com',
+//       From : "jxes6102@gmail.com",
+//       Subject : "This is the subject test gg 12",
+//       Body : "And this is the body test gg 12"
+//   }).then((message) => {
+//       console.log('message',message)
+//     }
+//   );
+// }
+
+// mailTest()
+
 
 const mailTitle = ref('')
 const mailName = ref('')
@@ -86,11 +108,11 @@ const mailPhone = ref('')
 const mailContent = ref('')
 const mailQuestion = ref('')
 const mailRule = ref({
-    title:{frequency:0,special:false,max:30,min:2,verify:false,message:''},
-    name:{frequency:0,special:false,max:30,min:3,verify:false,message:''},
-    phone:{frequency:0,special:true,max:20,min:5,verify:false,message:'',reg:/^[0-9]*$/},
-    content:{frequency:0,special:true,max:30,min:5,verify:false,message:'',reg:/^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/},
-    question:{frequency:0,special:false,max:100,min:1,verify:false,message:''},
+    title:{frequency:0,special:false,max:30,min:2,verify:false,message:'',formatWarn:''},
+    name:{frequency:0,special:false,max:30,min:3,verify:false,message:'',formatWarn:'',},
+    phone:{frequency:0,special:true,max:20,min:5,verify:false,message:'',formatWarn:'請輸入數字',reg:/^[0-9]*$/},
+    content:{frequency:0,special:true,max:30,min:5,verify:false,message:'',formatWarn:'請輸入正確電子信箱格式',reg:/^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/},
+    question:{frequency:0,special:false,max:100,min:1,verify:false,message:'',formatWarn:'',},
 })
 
 const isMobile = computed(() => {
@@ -98,99 +120,43 @@ const isMobile = computed(() => {
     return store.state.isMobile
 })
 
-watch(mailTitle, (newData, oldData) => {
-    if((newData.length < mailRule.value.title.min) || (newData.length > mailRule.value.title.max)){
-        mailRule.value.title.verify = false
-        mailRule.value.title.message = '請輸入大於'+ mailRule.value.title.min + '且小於' + mailRule.value.title.max + '個字元'
-    }else if (mailRule.value.title.special){
-        if(mailRule.value.title.reg.test(newData)){
-            mailRule.value.title.verify = true
-            mailRule.value.title.message = ''
+const checkData = (newData,key) => {
+    if((newData.length < mailRule.value[key].min) || (newData.length > mailRule.value[key].max)){
+        mailRule.value[key].verify = false
+        mailRule.value[key].message = '請輸入大於'+ mailRule.value[key].min + '且小於' + mailRule.value[key].max + '個字元'
+    }else if (mailRule.value[key].special){
+        if(mailRule.value[key].reg.test(newData)){
+            mailRule.value[key].verify = true
+            mailRule.value[key].message = ''
         }else{
-            mailRule.value.title.verify = false
-            mailRule.value.title.message = '請輸入數字'
+            mailRule.value[key].verify = false
+            mailRule.value[key].message = mailRule.value[key].formatWarn
         }
     }else{
-        mailRule.value.title.verify = true
-        mailRule.value.title.message = ''
+        mailRule.value[key].verify = true
+        mailRule.value[key].message = ''
     }
-    mailRule.value.title.frequency++
+    mailRule.value[key].frequency++
+}
+
+watch(mailTitle, (newData, oldData) => {
+    checkData(newData,'title')
 })
 
 watch(mailName, (newData, oldData) => {
-    if((newData.length < mailRule.value.name.min) || (newData.length > mailRule.value.name.max)){
-        mailRule.value.name.verify = false
-        mailRule.value.name.message = '請輸入大於'+ mailRule.value.name.min + '且小於' + mailRule.value.name.max + '個字元'
-    }else if (mailRule.value.name.special){
-        if(mailRule.value.name.reg.test(newData)){
-            mailRule.value.name.verify = true
-            mailRule.value.name.message = ''
-        }else{
-            mailRule.value.name.verify = false
-            mailRule.value.name.message = '請輸入數字'
-        }
-    }else{
-        mailRule.value.name.verify = true
-        mailRule.value.name.message = ''
-    }
-    mailRule.value.name.frequency++
+    checkData(newData,'name')
 })
 
 watch(mailPhone, (newData, oldData) => {
-    if((newData.length < mailRule.value.phone.min) || (newData.length > mailRule.value.phone.max)){
-        mailRule.value.phone.verify = false
-        mailRule.value.phone.message = '請輸入大於'+ mailRule.value.phone.min + '且小於' + mailRule.value.phone.max + '個字元'
-    }else if (mailRule.value.phone.special){
-        if(mailRule.value.phone.reg.test(newData)){
-            mailRule.value.phone.verify = true
-            mailRule.value.phone.message = ''
-        }else{
-            mailRule.value.phone.verify = false
-            mailRule.value.phone.message = '請輸入數字'
-        }
-    }else{
-        mailRule.value.phone.verify = true
-        mailRule.value.phone.message = ''
-    }
-    mailRule.value.phone.frequency++
+    checkData(newData,'phone')
 })
 
 watch(mailContent, (newData, oldData) => {
-    if((newData.length < mailRule.value.content.min) || (newData.length > mailRule.value.content.max)){
-        mailRule.value.content.verify = false
-        mailRule.value.content.message = '請輸入大於'+ mailRule.value.content.min + '且小於' + mailRule.value.content.max + '個字元'
-    }else if (mailRule.value.content.special){
-        if(mailRule.value.content.reg.test(newData)){
-            mailRule.value.content.verify = true
-            mailRule.value.content.message = ''
-        }else{
-            mailRule.value.content.verify = false
-            mailRule.value.content.message = '請輸入正確電子信箱格式'
-        }
-    }else{
-        mailRule.value.content.verify = true
-        mailRule.value.content.message = ''
-    }
-    mailRule.value.content.frequency++
+    checkData(newData,'content')
 })
 
 watch(mailQuestion, (newData, oldData) => {
-    if((newData.length < mailRule.value.question.min) || (newData.length > mailRule.value.question.max)){
-        mailRule.value.question.verify = false
-        mailRule.value.question.message = '請輸入大於'+ mailRule.value.question.min + '且小於' + mailRule.value.question.max + '個字元'
-    }else if (mailRule.value.question.special){
-        if(mailRule.value.question.reg.test(newData)){
-            mailRule.value.question.verify = true
-            mailRule.value.question.message = ''
-        }else{
-            mailRule.value.question.verify = false
-            mailRule.value.question.message = '請輸入正確電子信箱格式'
-        }
-    }else{
-        mailRule.value.question.verify = true
-        mailRule.value.question.message = ''
-    }
-    mailRule.value.question.frequency++
+    checkData(newData,'question')
 })
 
 let mailLoading = false
